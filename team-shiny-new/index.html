@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="チームシャイニー - 発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービス。95%以上が無料で利用可能。">
+    <meta name="keywords" content="発達障害, データサイエンス, AI, Webマーケティング, ADHD, ASD, LD, 就職支援, IT教育, プログラミング">
+    <meta name="author" content="チームシャイニー">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://team-shiny.com/">
+    <meta property="og:title" content="チームシャイニー | 発達障害特性を活かしたIT教育">
+    <meta property="og:description" content="発達障害の特性を活かし、データサイエンス・AI・Webマーケティングのプロを育成。95%以上が無料で利用可能。">
+    <meta property="og:image" content="https://team-shiny.com/images/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://team-shiny.com/">
+    <meta property="twitter:title" content="チームシャイニー | 発達障害特性を活かしたIT教育">
+    <meta property="twitter:description" content="発達障害の特性を活かし、データサイエンス・AI・Webマーケティングのプロを育成。95%以上が無料で利用可能。">
+    <meta property="twitter:image" content="https://team-shiny.com/images/twitter-image.jpg">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://team-shiny.com/">
+    <title>チームシャイニー | 発達障害特性を活かしたIT教育</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- プリロード重要なリソース -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+</head>
+<body>
+    <!-- スキップナビゲーション - アクセシビリティ向上 -->
+    <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+    
+    <!-- プレローダー -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <p class="loader-text">読み込み中...</p>
+    </div>
+
+    <!-- ヘッダーセクション -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#" aria-label="チームシャイニー ホームページ">
+                    <!-- ライトモード用ロゴ -->
+                    <img src="images/icons/logo.svg" alt="チームシャイニー" class="logo-light" width="180" height="54">
+                    <!-- ダークモード用ロゴ -->
+                    <img src="images/icons/logo-dark.svg" alt="チームシャイニー" class="logo-dark" width="180" height="54">
+                </a>
+            </div>
+            <nav class="nav-menu" aria-label="メインナビゲーション">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#features" class="nav-link">選ばれる理由</a></li>
+                    <li class="nav-item"><a href="#courses" class="nav-link">コース紹介</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">利用者の声</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">その他 <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-label="サブメニュー">
+                            <li><a href="#support" class="dropdown-item">サポート体制</a></li>
+                            <li><a href="#pricing" class="dropdown-item">料金と流れ</a></li>
+                            <li><a href="#faq" class="dropdown-item">よくある質問</a></li>
+                            <li><a href="#" class="dropdown-item">お知らせ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#contact" class="nav-link cta-button">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="phone-number">
+                <a href="tel:03XXXXXXXX" aria-label="電話番号: 03-XXXX-XXXX">
+                    <i class="fas fa-phone" aria-hidden="true"></i> <span>03-XXXX-XXXX</span>
+                </a>
+            </div>
+            <button class="mobile-toggle" aria-label="メニューを開く" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="menu-overlay"></div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- ヒーローセクション -->
+        <section class="hero" data-aos="fade-down">
+            <div class="container hero-container">
+                <h2 data-aos="fade-up" data-aos-delay="200">発達の特性を活かし、データサイエンス・AI・Webマーケティングのプロへ</h2>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">現役エンジニア・マーケターによる実践指導<br>95%以上が無料利用可能</p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#contact" class="primary-button">無料相談はこちら</a>
+                    <a href="#contact" class="secondary-button">見学・体験を申し込む</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 選ばれる理由セクション -->
+        <section id="features" class="section features-section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title" data-aos="fade-up">選ばれる理由</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>専門性の高いコース</h3>
+                        <p>データサイエンス、生成AI、Webマーケティングの専門コースを提供。あなたの興味に合わせて選べます。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>現役エンジニアによる指導</h3>
+                        <p>業界の最前線で活躍する現役エンジニアが、あなたの成長を丁寧にサポート。実践的な知識とスキルを直接学べます。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>実践的な学習内容</h3>
+                        <p>座学だけではなく、実際のビジネスシーンを想定した課題演習や、就職活動に役立つポートフォリオ作成に力を入れています。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>発達障害への理解とサポート</h3>
+                        <p>ADHD、ASD、LDなど、発達の特性に合わせた学習方法や個別サポートを提供。安心して学べる環境です。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Shiny Labへのキャリアパス</h3>
+                        <p>データサイエンスの専門性をさらに高めたい方へ。チームシャイニー卒業後の活躍の場として、Shiny Labをご用意しています。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-yen-sign"></i>
+                        </div>
+                        <h3>費用負担の軽減</h3>
+                        <p>経済的な負担を心配することなく、スキルアップに集中できる環境。95%以上の方が無料で利用されています。</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Webマーケティングも学べる</h3>
+                        <p>データ分析、AIに加え、Webマーケティングのスキルも習得可能。多様なキャリアパスを支援します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- コース紹介セクション -->
+        <section id="courses" class="section courses-section" aria-labelledby="courses-title">
+            <div class="container">
+                <h2 id="courses-title" class="section-title" data-aos="fade-up">コース紹介</h2>
+                <div class="courses-container">
+                    <article class="course-card" data-aos="flip-left" data-aos-duration="1000">
+                        <div class="course-icon" aria-hidden="true">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>データサイエンスコース</h3>
+                        <p>企業のデータ活用を学び、データ分析のプロを目指す。SQL、Python、Tableauなどを習得。</p>
+                        <ul class="course-list">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> データ基礎：データの種類と扱い方</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> データ前処理：データのクリーニングと整形</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> データ可視化：効果的なグラフ作成</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 探索的データ分析：データから洞察を得る</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 機械学習入門：予測モデルの作成</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 応用とプロジェクト：実践的なデータ分析</li>
+                        </ul>
+                        <div class="course-footer">
+                            <div class="course-duration">
+                                <i class="fas fa-clock" aria-hidden="true"></i> 期間：12〜20週間
+                            </div>
+                            <a href="#contact" class="course-button">詳しく見る</a>
+                        </div>
+                    </article>
+                    <article class="course-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="course-icon" aria-hidden="true">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>生成AIコース</h3>
+                        <p>画像生成、文章作成、業務効率化など、AIの最先端技術を習得。ChatGPT、Midjourneyなどを活用。</p>
+                        <ul class="course-list">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 生成AIゼミ：画像・テキスト生成の基礎</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> プロンプトエンジニアゼミ：効果的な指示の出し方</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> データ分析（AI活用）ゼミ：AIを活用したデータ分析</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> AI開発ゼミ：AIモデルの開発と実装</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Excel/スプレッドシートのAI活用ゼミ：業務効率化</li>
+                        </ul>
+                        <div class="course-footer">
+                            <div class="course-duration">
+                                <i class="fas fa-clock" aria-hidden="true"></i> 期間：8〜16週間
+                            </div>
+                            <a href="#contact" class="course-button">詳しく見る</a>
+                        </div>
+                    </article>
+                    <article class="course-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="course-icon" aria-hidden="true">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Webマーケティングコース</h3>
+                        <p>Webサイトへの集客、顧客との関係構築、売上向上を目指す。SEO、SNS、広告運用などを網羅的に学習。</p>
+                        <ul class="course-list">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> SEO：検索エンジン最適化の基礎と実践</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> コンテンツマーケティング：効果的なコンテンツ作成</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> SNSマーケティング：各プラットフォームの活用</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Web広告：Google広告、SNS広告の運用</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> データ分析：アクセス解析と効果測定</li>
+                        </ul>
+                        <div class="course-footer">
+                            <div class="course-duration">
+                                <i class="fas fa-clock" aria-hidden="true"></i> 期間：10〜18週間
+                            </div>
+                            <a href="#contact" class="course-button">詳しく見る</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 利用者の声セクション -->
+        <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <h2 id="testimonials-title" class="section-title" data-aos="fade-up">利用者の声</h2>
+                <div class="testimonials-container">
+                    <article class="testimonial-card" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="testimonial-content">
+                            <p>「発達障害の特性を理解した上での学習支援がとても効果的でした。自分のペースで学べる環境が整っており、無理なくプログラミングのスキルを身につけることができました。」</p>
+                        </div>
+                        <footer class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">T</div>
+                            <div class="author-info">
+                                <cite>田中 健太さん</cite>
+                                <p>Webエンジニア</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="testimonial-card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="testimonial-content">
+                            <p>「就職支援のサポートが充実していて、面接対策や履歴書の添削など、きめ細かな指導を受けることができました。そのおかげで、希望の企業に就職することができました。」</p>
+                        </div>
+                        <footer class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">S</div>
+                            <div class="author-info">
+                                <cite>佐藤 美咲さん</cite>
+                                <p>フロントエンドエンジニア</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="testimonial-card" data-aos="zoom-in-up" data-aos-delay="300">
+                        <div class="testimonial-content">
+                            <p>「職場定着支援のおかげで、新しい環境でも安心して働くことができています。定期的なフォローアップにより、困ったことがあってもすぐに相談できる体制が整っています。」</p>
+                        </div>
+                        <footer class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">K</div>
+                            <div class="author-info">
+                                <cite>木村 拓也さん</cite>
+                                <p>バックエンドエンジニア</p>
+                            </div>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 講師陣紹介セクション -->
+        <section id="instructors" class="section instructors-section" aria-labelledby="instructors-title">
+            <div class="container">
+                <h2 id="instructors-title" class="section-title" data-aos="fade-up">講師陣紹介</h2>
+                <p class="section-description text-center" data-aos="fade-up">業界の最前線で活躍する現役エンジニア・マーケターが、あなたの学習をサポートします。</p>
+                
+                <div class="instructors-container">
+                    <div class="instructor-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="instructor-image">
+                            <div class="instructor-photo">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h3>山田 太郎</h3>
+                            <p class="instructor-title">データサイエンスコース責任者</p>
+                            <p class="instructor-description">大手IT企業でデータサイエンティストとして10年以上の経験を持つ。Python、SQLを用いたデータ分析が専門。発達障害への深い理解と教育経験を活かし、分かりやすい指導を行う。</p>
+                            <div class="instructor-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Tableau</span>
+                                <span class="skill-tag">機械学習</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="instructor-image">
+                            <div class="instructor-photo">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h3>佐藤 花子</h3>
+                            <p class="instructor-title">生成AIコース責任者</p>
+                            <p class="instructor-description">AIスタートアップの創業者。生成AI技術の研究開発に携わり、多数のAIプロジェクトをリード。自身も発達障害の当事者として、特性を活かした学習法を実践的に指導。</p>
+                            <div class="instructor-skills">
+                                <span class="skill-tag">ChatGPT</span>
+                                <span class="skill-tag">Stable Diffusion</span>
+                                <span class="skill-tag">プロンプトエンジニアリング</span>
+                                <span class="skill-tag">AI開発</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="instructor-image">
+                            <div class="instructor-photo">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h3>鈴木 健太</h3>
+                            <p class="instructor-title">Webマーケティングコース責任者</p>
+                            <p class="instructor-description">デジタルマーケティングエージェンシーの戦略担当ディレクター。広告運用、SEO、コンテンツマーケティングなど幅広い知識と実績を持つ。視覚的に分かりやすい教材作成に定評がある。</p>
+                            <div class="instructor-skills">
+                                <span class="skill-tag">SEO</span>
+                                <span class="skill-tag">Web広告</span>
+                                <span class="skill-tag">アクセス解析</span>
+                                <span class="skill-tag">コンテンツマーケティング</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="instructor-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="instructor-image">
+                            <div class="instructor-photo">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h3>田中 美咲</h3>
+                            <p class="instructor-title">キャリアサポートアドバイザー</p>
+                            <p class="instructor-description">人材紹介会社での就労支援の経験を活かし、一人ひとりの特性に合わせたキャリア支援を行う。発達障害に理解のある企業とのネットワークを持ち、最適なマッチングを実現。</p>
+                            <div class="instructor-skills">
+                                <span class="skill-tag">キャリアカウンセリング</span>
+                                <span class="skill-tag">職場定着支援</span>
+                                <span class="skill-tag">履歴書添削</span>
+                                <span class="skill-tag">面接対策</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- カリキュラムタイムラインセクション -->
+        <section id="curriculum" class="section curriculum-section" aria-labelledby="curriculum-title">
+            <div class="container">
+                <h2 id="curriculum-title" class="section-title" data-aos="fade-up">データサイエンスコースカリキュラム</h2>
+                <p class="section-description text-center" data-aos="fade-up">12〜20週間のカリキュラムで、データサイエンスの基礎から応用まで体系的に学びます。</p>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 1-2</div>
+                            <h3>データ基礎</h3>
+                            <p>データの種類や構造、統計の基本概念を学びます。実際のビジネスデータを扱いながら、データに対する理解を深めていきます。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">データ型</span>
+                                <span class="timeline-topic">基本統計</span>
+                                <span class="timeline-topic">Excel基礎</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 3-4</div>
+                            <h3>SQL入門</h3>
+                            <p>データベースの基本概念とSQLを学び、データの抽出・集計・結合などの操作方法を習得します。実践的なクエリの書き方を身につけます。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">SELECT文</span>
+                                <span class="timeline-topic">WHERE条件</span>
+                                <span class="timeline-topic">GROUP BY</span>
+                                <span class="timeline-topic">JOIN</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 5-7</div>
+                            <h3>Python基礎</h3>
+                            <p>Pythonの基本文法からデータ分析に必要なライブラリ（Pandas, NumPy）の使い方まで学びます。データの読み込み、加工、分析の方法を習得します。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">変数と型</span>
+                                <span class="timeline-topic">制御構文</span>
+                                <span class="timeline-topic">Pandas</span>
+                                <span class="timeline-topic">NumPy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 8-10</div>
+                            <h3>データ可視化</h3>
+                            <p>Matplotlib, Seabornを使ったグラフの作成方法と、Tableauを使った効果的なダッシュボード作成を学びます。データを視覚的に表現する技術を身につけます。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">棒グラフ・折れ線グラフ</span>
+                                <span class="timeline-topic">ヒートマップ</span>
+                                <span class="timeline-topic">Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 11-14</div>
+                            <h3>機械学習入門</h3>
+                            <p>教師あり学習の基礎（回帰、分類）から、scikit-learnを使ったモデル構築まで学びます。実データを使ったモデル評価も行います。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">線形回帰</span>
+                                <span class="timeline-topic">ロジスティック回帰</span>
+                                <span class="timeline-topic">決定木</span>
+                                <span class="timeline-topic">モデル評価</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-week">Week 15-20</div>
+                            <h3>実践プロジェクト</h3>
+                            <p>実際のビジネス課題に取り組み、データ分析プロジェクトを完成させます。ポートフォリオとして就職活動にも活用できる成果物を作成します。</p>
+                            <div class="timeline-topics">
+                                <span class="timeline-topic">課題設定</span>
+                                <span class="timeline-topic">データ収集・分析</span>
+                                <span class="timeline-topic">成果発表</span>
+                                <span class="timeline-topic">ポートフォリオ作成</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#contact" class="primary-button" data-aos="fade-up">無料相談で詳細を聞く</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 成功事例（ケーススタディ）セクション -->
+        <section id="case-studies" class="section case-studies-section" aria-labelledby="case-studies-title">
+            <div class="container">
+                <h2 id="case-studies-title" class="section-title" data-aos="fade-up">成功事例</h2>
+                <p class="section-description text-center" data-aos="fade-up">チームシャイニーで学んだ卒業生たちがIT業界で活躍しています。彼らのストーリーがあなたの可能性を広げるヒントになるかもしれません。</p>
+                
+                <div class="case-studies-container">
+                    <div class="case-study-card" data-aos="zoom-in">
+                        <div class="case-study-header">
+                            <div class="case-study-image">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="case-study-intro">
+                                <h3>鈴木 一郎さん</h3>
+                                <p class="case-study-job">データアナリスト / 大手Eコマース企業</p>
+                                <div class="case-study-tags">
+                                    <span class="case-tag">ADHD</span>
+                                    <span class="case-tag">データサイエンスコース</span>
+                                    <span class="case-tag">20代</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-user-graduate" aria-hidden="true"></i> 入校前の状況</h4>
+                                <p>大学を卒業後、いくつかのアルバイトを経験するも、長続きせずに悩んでいました。ADHDの診断を受け、自分の特性に合った仕事を探していました。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> チームシャイニーでの学び</h4>
+                                <p>データサイエンスコースで集中しやすい環境を見つけ、データ分析の楽しさに目覚めました。特に可視化やデータから新しい発見をする過程に没頭できることを発見。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-briefcase" aria-hidden="true"></i> 現在の活躍</h4>
+                                <p>大手Eコマース企業でデータアナリストとして、ユーザー行動分析やA/Bテストの設計・分析を担当。ADHDの「ハイパーフォーカス」の特性を活かし、複雑なデータパターンを見つけ出す能力が評価されています。</p>
+                            </div>
+                            <div class="case-study-quote">
+                                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                <blockquote>
+                                    「自分の特性を欠点ではなく、強みとして活かせる場所を見つけられたことが大きな転機でした。チームシャイニーでは、理解ある環境で自分のペースで学べたことが自信につながりました。」
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="case-study-header">
+                            <div class="case-study-image">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="case-study-intro">
+                                <h3>佐藤 美玲さん</h3>
+                                <p class="case-study-job">AIエンジニア / テクノロジースタートアップ</p>
+                                <div class="case-study-tags">
+                                    <span class="case-tag">ASD</span>
+                                    <span class="case-tag">生成AIコース</span>
+                                    <span class="case-tag">30代</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-user-graduate" aria-hidden="true"></i> 入校前の状況</h4>
+                                <p>事務職として働いていましたが、職場環境の刺激に疲れ、パターン認識や細部への注意力という自分の特性を活かせる仕事を探していました。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> チームシャイニーでの学び</h4>
+                                <p>生成AIコースでプログラミングとAIモデル開発を学び、特に細部へのこだわりがAIモデルの最適化に役立つことを発見。視覚的な教材と構造化された学習プロセスが理解を助けました。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-briefcase" aria-hidden="true"></i> 現在の活躍</h4>
+                                <p>テクノロジースタートアップでAIエンジニアとして、医療画像診断AIの開発に携わっています。パターン認識の鋭さと細部へのこだわりが、高精度なAIモデル開発に貢献しています。</p>
+                            </div>
+                            <div class="case-study-quote">
+                                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                <blockquote>
+                                    「自分の『違い』が実は強みだったことに気づかせてくれたのがチームシャイニーでした。今では私の特性が会社の強みにもなっています。新しいスキルと自信を得て、本当に自分らしく働けています。」
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="case-study-header">
+                            <div class="case-study-image">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="case-study-intro">
+                                <h3>田中 健太さん</h3>
+                                <p class="case-study-job">Webマーケター / デジタルマーケティングエージェンシー</p>
+                                <div class="case-study-tags">
+                                    <span class="case-tag">LD</span>
+                                    <span class="case-tag">Webマーケティングコース</span>
+                                    <span class="case-tag">20代</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-user-graduate" aria-hidden="true"></i> 入校前の状況</h4>
+                                <p>文字を読むことに困難を感じ、学校教育では苦労していました。視覚的な情報処理と創造性には自信があり、それを活かせる仕事を探していました。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> チームシャイニーでの学び</h4>
+                                <p>Webマーケティングコースで、視覚的コンテンツ制作とデータ分析を学びました。音声読み上げツールや視覚的な教材を活用した学習方法が効果的でした。</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-briefcase" aria-hidden="true"></i> 現在の活躍</h4>
+                                <p>デジタルマーケティングエージェンシーでWebマーケターとして、特に視覚的なコンテンツ戦略とユーザー体験設計を担当。クリエイティブな思考と視覚的センスが高く評価されています。</p>
+                            </div>
+                            <div class="case-study-quote">
+                                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                <blockquote>
+                                    「文字を読むことが苦手でも、情報を理解し活用する方法は他にもあると教えてもらいました。技術だけでなく、自分に合った働き方も学べたのが大きかったです。今では私の『見る力』がチームの強みになっています。」
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#contact" class="primary-button" data-aos="fade-up">あなたも成功事例になりませんか？</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- サポート体制セクション -->
+        <section id="support" class="section support-section" aria-labelledby="support-title">
+            <div class="container">
+                <h2 id="support-title" class="section-title" data-aos="fade-up">サポート体制</h2>
+                <div class="support-container">
+                    <div class="support-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h3>個別学習プラン</h3>
+                        <p>一人ひとりの特性や目標に合わせた学習プランを作成。あなたのペースで無理なく学習を進められます。</p>
+                    </div>
+                    <div class="support-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>現役エンジニアによる指導</h3>
+                        <p>質問しやすい環境で疑問を即解決。実践的な知識とスキルを直接学べます。</p>
+                    </div>
+                    <div class="support-card" data-aos="fade-right" data-aos-delay="300">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>就職支援</h3>
+                        <p>履歴書添削、面接対策、企業紹介など、就職活動をトータルでサポートします。</p>
+                    </div>
+                    <div class="support-card" data-aos="fade-left" data-aos-delay="100">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>職場定着支援</h3>
+                        <p>就職後も安心して働けるよう、職場でのコミュニケーションや業務の進め方などをサポートします。</p>
+                    </div>
+                    <div class="support-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>発達障害専門スタッフ</h3>
+                        <p>専門知識を持つスタッフが親身に対応。特性に合わせた学習方法や環境を提案します。</p>
+                    </div>
+                    <div class="support-card" data-aos="fade-left" data-aos-delay="300">
+                        <div class="support-icon" aria-hidden="true">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>コミュニケーション支援</h3>
+                        <p>ソーシャルスキルトレーニングなどを通じて、職場でのコミュニケーション力を向上させます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 料金とプロセスセクション -->
+        <section id="pricing" class="section pricing-section" aria-labelledby="pricing-title">
+            <div class="container">
+                <h2 id="pricing-title" class="section-title" data-aos="fade-up">料金とプロセス</h2>
+                <div class="pricing-container">
+                    <div class="pricing-card" data-aos="zoom-in" data-aos-duration="800">
+                        <div class="pricing-icon" aria-hidden="true">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>95%以上が無料で利用可能</h3>
+                        <p class="pricing-description">経済的な負担を心配することなく、スキルアップに集中できる環境を提供しています。</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> コース受講料無料</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> 教材費無料</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> 就職支援無料</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> 個別サポート無料</li>
+                        </ul>
+                        <a href="#contact" class="pricing-button">無料相談を申し込む</a>
+                    </div>
+                </div>
+                <div class="process-container">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <div class="step-icon" aria-hidden="true">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>無料相談</h3>
+                        <p>まずは無料相談で、あなたの目標や特性についてお話ししましょう。</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <div class="step-icon" aria-hidden="true">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>学習プラン作成</h3>
+                        <p>一人ひとりの特性や目標に合わせた学習プランを作成します。</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <div class="step-icon" aria-hidden="true">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>コース受講開始</h3>
+                        <p>選んだコースの学習を開始。現役エンジニアが丁寧にサポートします。</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-number">4</div>
+                        <div class="step-icon" aria-hidden="true">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>就職支援</h3>
+                        <p>履歴書添削、面接対策、企業紹介など、就職活動をトータルでサポート。</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                        <div class="step-number">5</div>
+                        <div class="step-icon" aria-hidden="true">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>職場定着支援</h3>
+                        <p>就職後も安心して働けるよう、職場でのコミュニケーションや業務の進め方などをサポート。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- よくある質問セクション -->
+        <section id="faq" class="section faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" class="section-title">よくある質問</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <span>発達障害があるのですが、参加できますか？</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>はい、もちろん参加できます。ADHD、ASD、LDなど、様々な発達の特性に合わせた学習方法や個別サポートを提供しています。一人ひとりの特性を理解し、最適な学習環境を整えています。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <span>プログラミングの経験がなくても大丈夫ですか？</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>はい、プログラミング未経験の方でも安心して参加できます。基礎から丁寧に指導し、一人ひとりの理解度に合わせて進めていきます。現役エンジニアが親身にサポートしますので、ご安心ください。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <span>学習期間はどのくらいかかりますか？</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>コースによって異なりますが、データサイエンスコースは12〜20週間、生成AIコースは8〜16週間、Webマーケティングコースは10〜18週間を目安としています。ただし、一人ひとりの学習ペースに合わせて調整可能です。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <span>就職支援はどのように行われますか？</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>履歴書・職務経歴書の添削、面接対策、企業紹介など、就職活動をトータルでサポートします。また、発達障害への理解のある企業とのマッチングにも力を入れています。就職後も職場定着支援を行い、長期的なキャリア形成を支援します。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <span>費用はどのくらいかかりますか？</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>95%以上の方が無料で利用されています。コース受講料、教材費、就職支援、個別サポートなど、すべて無料で提供しています。経済的な負担を心配することなく、スキルアップに集中できる環境を整えています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- お問い合わせセクション -->
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">お問い合わせ</h2>
+                <div class="contact-container">
+                    <form id="inquiryForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">必須</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">必須</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号 <span class="optional">任意</span></label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> 送信する
+                        </button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>電話</h4>
+                                <a href="tel:03XXXXXXXX">03-XXXX-XXXX</a>
+                                <p class="info-note">平日 9:00〜18:00</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>メール</h4>
+                                <a href="mailto:info@team-shiny.com">info@team-shiny.com</a>
+                                <p class="info-note">24時間受付</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>所在地</h4>
+                                <p>〒XXX-XXXX 東京都千代田区XX-XX-XX</p>
+                                <p class="info-note">最寄り駅：XX駅 徒歩5分</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッターセクション -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <h3>チームシャイニー</h3>
+                    <p>発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービス</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>クイックリンク</h3>
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#courses">コース紹介</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:03XXXXXXXX">03-XXXX-XXXX</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@team-shiny.com">info@team-shiny.com</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 東京都千代田区XX-XX-XX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 チームシャイニー All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">プライバシーポリシー</a>
+                    <a href="#">利用規約</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- テーマ切り替えボタン -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="ダークモード切り替え">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+        <i class="fas fa-sun" aria-hidden="true"></i>
+        <span class="sr-only">テーマを切り替える</span>
+    </button>
+
+    <!-- テキストサイズ変更ツール -->
+    <div class="accessibility-tools">
+        <button id="text-decrease" class="text-size-btn" aria-label="テキストサイズを小さくする">
+            <i class="fas fa-font" aria-hidden="true"></i><span>-</span>
+        </button>
+        <button id="text-reset" class="text-size-btn" aria-label="テキストサイズをリセット">
+            <i class="fas fa-font" aria-hidden="true"></i>
+        </button>
+        <button id="text-increase" class="text-size-btn" aria-label="テキストサイズを大きくする">
+            <i class="fas fa-font" aria-hidden="true"></i><span>+</span>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
