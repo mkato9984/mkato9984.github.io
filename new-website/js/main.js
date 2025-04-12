@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // モバイルメニューの制御
+    // モバイルメニュートグル
     const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.main-nav');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
-    
+
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
             body.classList.toggle('menu-open');
@@ -11,62 +12,82 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.setAttribute('aria-expanded', isOpen);
         });
     }
-    
-    // オーバーレイクリックでメニューを閉じる
+
     if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', function() {
             body.classList.remove('menu-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-expanded', false);
         });
     }
-    
-    // モバイル表示時のドロップダウンメニュー
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
-    if (window.innerWidth <= 1024) {
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    const dropdownMenu = this.nextElementSibling;
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    
-                    this.setAttribute('aria-expanded', !isExpanded);
-                    dropdownMenu.style.display = isExpanded ? 'none' : 'block';
+
+    // ドロップダウンメニューのアクセシビリティ対応
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+        });
+    }
+
+    // モバイルでのドロップダウン
+    const dropdowns = document.querySelectorAll('.nav-list .dropdown');
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        if (dropdownToggle && window.innerWidth <= 1024) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // 他のすべてのドロップダウンを閉じる
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.querySelector('.dropdown-menu').style.display = 'none';
+                    }
+                });
+                
+                // このドロップダウンを開く/閉じる
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                } else {
+                    dropdownMenu.style.display = 'block';
                 }
             });
-        });
-    }
-    
-    // スムーズスクロール
-    const navLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // モバイルメニューを閉じる
-            if (body.classList.contains('menu-open')) {
-                body.classList.remove('menu-open');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        }
+    });
+
+    // ページ内リンクスムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // ドロップダウントグルでなければスムーススクロールを実行
+            if (!this.classList.contains('dropdown-toggle')) {
+                const target = document.querySelector(this.getAttribute('href'));
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                if (target) {
+                    e.preventDefault();
+                    
+                    // モバイルメニューが開いていたら閉じる
+                    body.classList.remove('menu-open');
+                    if (menuToggle) {
+                        menuToggle.setAttribute('aria-expanded', false);
+                    }
+                    
+                    // ヘッダーの高さを考慮したスクロール位置の計算
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
-    
-    // よくある質問のアコーディオン機能
+
+    // よくある質問のアコーディオン
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
@@ -74,119 +95,67 @@ document.addEventListener('DOMContentLoaded', function() {
             const answer = this.nextElementSibling;
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             
-            // 現在開いている質問を閉じる
+            // すべての質問を閉じる
             faqQuestions.forEach(q => {
-                if (q !== this && q.getAttribute('aria-expanded') === 'true') {
+                if (q !== this) {
                     q.setAttribute('aria-expanded', 'false');
                     q.nextElementSibling.classList.remove('active');
                 }
             });
             
+            // このFAQを開く/閉じる
             this.setAttribute('aria-expanded', !isExpanded);
             answer.classList.toggle('active');
         });
     });
+
+    // ページトップへ戻るボタン
+    const backToTopButton = document.querySelector('.back-to-top');
     
-    // ページトップに戻るボタン
-    const backToTopButton = document.createElement('a');
-    backToTopButton.className = 'back-to-top';
-    backToTopButton.setAttribute('aria-label', 'トップに戻る');
-    backToTopButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    document.body.appendChild(backToTopButton);
-    
-    // スクロールに応じてボタンの表示/非表示
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-    
-    // ボタンクリック時のスクロール
-    backToTopButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
         });
-    });
-    
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ヒーローセクションのアニメーション効果
+    const animateHero = () => {
+        const heroElements = document.querySelectorAll('.hero-content > *');
+        heroElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('animated');
+            }, index * 200);
+        });
+    };
+
+    // ページ読み込み時にヒーローアニメーションを実行
+    animateHero();
+
     // お問い合わせフォームのバリデーション
-    const contactForm = document.getElementById('inquiryForm');
+    const inquiryForm = document.getElementById('inquiryForm');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 入力確認
-            let isValid = true;
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
+            // 実際の送信処理はここに実装
+            // FormDataを使用してフォームデータを取得し、APIに送信するなど
             
-            if (!name.value.trim()) {
-                isValid = false;
-                name.style.borderColor = '#e74c3c';
-            } else {
-                name.style.borderColor = '#ddd';
-            }
-            
-            if (!email.value.trim() || !isValidEmail(email.value)) {
-                isValid = false;
-                email.style.borderColor = '#e74c3c';
-            } else {
-                email.style.borderColor = '#ddd';
-            }
-            
-            if (!message.value.trim()) {
-                isValid = false;
-                message.style.borderColor = '#e74c3c';
-            } else {
-                message.style.borderColor = '#ddd';
-            }
-            
-            if (isValid) {
-                // フォーム送信処理
-                alert('お問い合わせありがとうございます。メッセージが送信されました。');
-                contactForm.reset();
-            } else {
-                alert('必須項目を入力してください。');
-            }
+            // 送信成功時の処理例
+            alert('お問い合わせを受け付けました。担当者からの返信をお待ちください。');
+            inquiryForm.reset();
         });
     }
-    
-    // メールアドレスのバリデーション
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    // アニメーション効果
-    const animatedElements = document.querySelectorAll('.feature-card, .course-card, .testimonial-card, .support-card, .pricing-card, .process-step');
-    
-    // スクロール時のアニメーション
-    function checkScroll() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight * 0.9) {
-                element.classList.add('animated');
-            }
-        });
-    }
-    
-    // 初回読み込み時とスクロール時にチェック
-    window.addEventListener('load', checkScroll);
-    window.addEventListener('scroll', checkScroll);
-    
-    // ウィンドウリサイズ時の対応
-    window.addEventListener('resize', function() {
-        // モバイルメニューのリセット
-        if (window.innerWidth > 1024 && body.classList.contains('menu-open')) {
-            body.classList.remove('menu-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        }
-    });
 });
