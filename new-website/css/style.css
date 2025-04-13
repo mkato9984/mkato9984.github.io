@@ -1,8 +1,8 @@
 /* ===== ダークモード/ライトモードの初期表示制御 ===== */
 /* 初期状態ではライトモードスタイルをデフォルトとして適用 */
 html, body {
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     visibility: visible !important;
 }
 

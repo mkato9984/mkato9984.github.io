@@ -4,34 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="チームシャイニーは発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービスです。95%以上が無料で利用可能。">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="light dark">
     <title>チームシャイニー | データサイエンス・AI・Webマーケティング教育</title>
     
     <!-- スタイルを一時的に非表示にして、ダークモードのフラッシュを防止 -->
     <style>
         html, body {
-            background-color: #ffffff;
-            color: #333333;
-        }
-        
-        .dark-icon {
-            display: inline-block;
-        }
-        
-        .light-icon {
-            display: none;
+            visibility: hidden;
         }
     </style>
     
     <!-- テーマ初期化（CSSが適用される前に実行するインラインスクリプト） -->
     <script>
-        // 強制的にライトモードを設定
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
+        // ローカルストレージからテーマ設定を取得
+        const savedTheme = localStorage.getItem('theme');
+        // システムの設定を確認
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // テーマの初期設定
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.classList.add('dark-mode');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.classList.remove('dark-mode');
+        }
     </script>
     
     <!-- GitHub Pagesで正しくリソースを読み込むためのベースURL設定 - 修正 -->
-    <base href="https://mkato9984.github.io/new-website/">
+    <!-- <base href="https://mkato9984.github.io/new-website/"> -->
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -39,9 +39,11 @@ function initThemeToggle() {
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         document.body.classList.add('dark-mode');
         document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.setAttribute('aria-label', 'ライトモードに切り替え');
     } else {
         document.body.classList.remove('dark-mode');
         document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.setAttribute('aria-label', 'ダークモードに切り替え');
     }
     
     // テーマ切り替えの処理
@@ -50,10 +52,14 @@ function initThemeToggle() {
             document.body.classList.remove('dark-mode');
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
+            themeToggle.setAttribute('aria-label', 'ダークモードに切り替え');
+            console.log('ライトモードに切り替えました');
         } else {
             document.body.classList.add('dark-mode');
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
+            themeToggle.setAttribute('aria-label', 'ライトモードに切り替え');
+            console.log('ダークモードに切り替えました');
         }
     });
 }
