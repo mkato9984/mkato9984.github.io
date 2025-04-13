@@ -92,25 +92,51 @@ function initScrollAnimation() {
 
 // モバイルナビゲーション
 function initMobileNav() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.nav-menu');
+    const mobileMenuBtn = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.main-nav');
     if (!mobileMenuBtn || !mobileNav) return;
     
     mobileMenuBtn.addEventListener('click', function() {
         this.classList.toggle('open');
-        mobileNav.classList.toggle('open');
+        mobileNav.classList.toggle('active');
         document.body.classList.toggle('menu-open');
+        document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+    });
+    
+    // ドロップダウンメニューの開閉
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            // モバイルビューの場合のみ通常のリンク動作を防止
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            }
+        });
     });
     
     // メニューリンクをクリックしたら閉じる
-    const mobileLinks = mobileNav.querySelectorAll('a');
+    const mobileLinks = mobileNav.querySelectorAll('a:not(.dropdown-toggle)');
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenuBtn.classList.remove('open');
-            mobileNav.classList.remove('open');
+            mobileNav.classList.remove('active');
             document.body.classList.remove('menu-open');
+            document.querySelector('.mobile-menu-overlay').classList.remove('active');
         });
     });
+
+    // モバイルメニューオーバーレイをクリックしたときも閉じる
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('open');
+            mobileNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            this.classList.remove('active');
+        });
+    }
 }
 
 // ギャラリーフィルタリング
@@ -129,13 +155,15 @@ function initGalleryFilter() {
             
             galleryItems.forEach(item => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.classList.remove('hidden');
-                    item.style.opacity = '0';
+                    item.style.display = 'block';
                     setTimeout(() => {
                         item.style.opacity = '1';
                     }, 50);
                 } else {
-                    item.classList.add('hidden');
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
                 }
             });
         });
@@ -249,21 +277,21 @@ function initLightbox() {
 
 // よくある質問のアコーディオン
 function initFaqAccordion() {
-    const accordionButtons = document.querySelectorAll('.accordion-button');
-    if (accordionButtons.length === 0) return;
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    if (faqQuestions.length === 0) return;
     
-    accordionButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const content = this.nextElementSibling;
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            // aria-expanded属性の切り替え
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
             
-            // アクティブ状態の切り替え
-            this.classList.toggle('active');
-            
-            // コンテンツの表示/非表示切り替え
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
+            // アンサーセクションの表示/非表示切り替え
+            const answer = this.nextElementSibling;
+            if (isExpanded) {
+                answer.classList.remove('active');
             } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
+                answer.classList.add('active');
             }
         });
     });

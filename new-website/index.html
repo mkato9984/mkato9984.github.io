@@ -49,39 +49,48 @@
     <!-- ヘッダー -->
     <header class="header">
         <div class="container">
-            <div class="header-inner">
-                <a href="#" class="logo">
-                    <img src="images/logo.svg" alt="チームシャイニーロゴ">
-                    <span>Team Shiny</span>
-                </a>
+            <div class="header-container">
+                <h1 class="logo">チームシャイニー</h1>
                 
-                <nav class="nav-menu">
-                    <ul class="nav-list">
-                        <li><a href="#hero" class="nav-link">ホーム</a></li>
-                        <li><a href="#features" class="nav-link">特徴</a></li>
-                        <li><a href="#courses" class="nav-link">コース</a></li>
-                        <li><a href="#process" class="nav-link">流れ</a></li>
-                        <li><a href="#gallery" class="nav-link">ギャラリー</a></li>
-                        <li><a href="#faq" class="nav-link">よくある質問</a></li>
-                        <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="header-buttons">
+                <div class="header-right">
+                    <a href="tel:03XXXXXXXX" class="phone-number">
+                        <i class="fas fa-phone"></i> 03-XXXX-XXXX
+                    </a>
+                    
                     <button id="theme-toggle" class="theme-toggle" aria-label="ダークモード切り替え">
                         <i class="fas fa-moon dark-icon"></i>
                         <i class="fas fa-sun light-icon"></i>
                     </button>
-                    <a href="#contact" class="cta-button">無料相談する</a>
+                    
+                    <nav class="main-nav" aria-label="メインナビゲーション">
+                        <ul class="nav-list">
+                            <li><a href="#features">選ばれる理由</a></li>
+                            <li><a href="#courses">コース紹介</a></li>
+                            <li><a href="#testimonials">利用者の声</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                    その他 <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-label="サブメニュー">
+                                    <li><a href="#support">サポート体制</a></li>
+                                    <li><a href="#pricing">料金と流れ</a></li>
+                                    <li><a href="#faq">よくある質問</a></li>
+                                    <li><a href="#">お知らせ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact" class="cta-button">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
                 </div>
-                
-                <button class="mobile-menu-toggle" aria-label="メニュー">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
             </div>
         </div>
+        <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- ヒーローセクション -->
@@ -272,7 +281,9 @@
                         <p>発達障害の特性を理解した上での学習支援がとても効果的でした。自分のペースで学べる環境が整っており、無理なくプログラミングのスキルを身につけることができました。</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">T</div>
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
                         <div class="author-info">
                             <h4>田中 健太さん</h4>
                             <p>Webエンジニア</p>
@@ -285,7 +296,9 @@
                         <p>就職支援のサポートが充実していて、面接対策や履歴書の添削など、きめ細かな指導を受けることができました。そのおかげで、希望の企業に就職することができました。</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
                         <div class="author-info">
                             <h4>佐藤 美咲さん</h4>
                             <p>フロントエンドエンジニア</p>
@@ -298,7 +311,9 @@
                         <p>職場定着支援のおかげで、新しい環境でも安心して働くことができています。定期的なフォローアップにより、困ったことがあってもすぐに相談できる体制が整っています。</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">K</div>
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
                         <div class="author-info">
                             <h4>木村 拓也さん</h4>
                             <p>バックエンドエンジニア</p>
@@ -757,7 +772,7 @@
     </footer>
 
     <!-- ページトップへ戻るボタン -->
-    <a href="#" class="back-to-top" aria-label="ページトップへ戻る">
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="ページトップへ戻る">
         <i class="fas fa-chevron-up"></i>
     </a>
 
