@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="チームシャイニーは発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービスです。95%以上が無料で利用可能。">
+    <meta name="color-scheme" content="light">
     <title>チームシャイニー | データサイエンス・AI・Webマーケティング教育</title>
+    
+    <!-- スタイルを一時的に非表示にして、ダークモードのフラッシュを防止 -->
+    <style>
+        html, body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        
+        .dark-icon {
+            display: inline-block;
+        }
+        
+        .light-icon {
+            display: none;
+        }
+    </style>
+    
+    <!-- テーマ初期化（CSSが適用される前に実行するインラインスクリプト） -->
+    <script>
+        // 強制的にライトモードを設定
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    </script>
+    
+    <!-- GitHub Pagesで正しくリソースを読み込むためのベースURL設定 - 修正 -->
+    <base href="https://mkato9984.github.io/new-website/">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,51 +42,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- ヘッダーセクション -->
-    <header class="header">
-        <div class="container">
-            <div class="header-container">
-                <a href="#" class="logo-link">
-                    <img src="images/logo.svg" alt="チームシャイニー" class="logo-image">
-                </a>
+                        <li><a href="#features" class="nav-link">特徴</a></li>
+                        <li><a href="#courses" class="nav-link">コース</a></li>
+                        <li><a href="#process" class="nav-link">流れ</a></li>
+                        <li><a href="#gallery" class="nav-link">ギャラリー</a></li>
+                        <li><a href="#faq" class="nav-link">よくある質問</a></li>
+                        <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+                    </ul>
+                </nav>
                 
-                <div class="header-right">
-                    <a href="tel:03XXXXXXXX" class="phone-number">
-                        <i class="fas fa-phone"></i> 03-XXXX-XXXX
-                    </a>
-                    
-                    <nav class="main-nav" aria-label="メインナビゲーション">
-                        <ul class="nav-list">
-                            <li><a href="#features">選ばれる理由</a></li>
-                            <li><a href="#courses">コース紹介</a></li>
-                            <li><a href="#testimonials">利用者の声</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                                    その他 <i class="fas fa-chevron-down"></i>
-                                </a>
-                                <ul class="dropdown-menu" aria-label="サブメニュー">
-                                    <li><a href="#support">サポート体制</a></li>
-                                    <li><a href="#pricing">料金と流れ</a></li>
-                                    <li><a href="#faq">よくある質問</a></li>
-                                    <li><a href="#news">お知らせ</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#contact" class="cta-button">お問い合わせ</a></li>
-                        </ul>
-                    </nav>
-                    
-                    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
+                <div class="header-buttons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="ダークモード切り替え">
+                        <i class="fas fa-moon dark-icon"></i>
+                        <i class="fas fa-sun light-icon"></i>
                     </button>
+                    <a href="#contact" class="cta-button">無料相談する</a>
                 </div>
+                
+                <button class="mobile-menu-toggle" aria-label="メニュー">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </div>
-        <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- ヒーローセクション -->
@@ -347,6 +353,118 @@
         </div>
     </section>
 
+    <!-- ギャラリーセクション -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">学習風景ギャラリー</h2>
+            <p class="gallery-description">チームシャイニーでの学習風景や施設の様子をご紹介します。</p>
+            
+            <div class="gallery-filter">
+                <button class="filter-button active" data-filter="all">すべて</button>
+                <button class="filter-button" data-filter="classroom">教室風景</button>
+                <button class="filter-button" data-filter="event">イベント</button>
+                <button class="filter-button" data-filter="facility">施設</button>
+                <button class="filter-button" data-filter="student">受講生の作品</button>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item" data-category="classroom">
+                    <img src="images/gallery/classroom1.jpg" alt="教室風景1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>データサイエンスクラス</h3>
+                            <p>現役のデータサイエンティストから直接指導を受けることができます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classroom">
+                    <img src="images/gallery/classroom2.jpg" alt="教室風景2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>少人数制グループワーク</h3>
+                            <p>理解度に合わせた少人数制のグループで実践的なプロジェクトに取り組みます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="event">
+                    <img src="images/gallery/event1.jpg" alt="イベント1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>企業合同説明会</h3>
+                            <p>提携企業による説明会で、就職への道が広がります。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="event">
+                    <img src="images/gallery/event2.jpg" alt="イベント2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>ハッカソンイベント</h3>
+                            <p>チームでの開発スキルを磨くハッカソンイベントを定期的に開催しています。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="facility">
+                    <img src="images/gallery/facility1.jpg" alt="施設1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>開放的なラウンジ</h3>
+                            <p>休憩やディスカッションに最適な、開放的で居心地の良いスペースです。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="facility">
+                    <img src="images/gallery/facility2.jpg" alt="施設2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>最新設備の教室</h3>
+                            <p>高性能PCと大型モニターを完備した、快適な学習環境です。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="student">
+                    <img src="images/gallery/student1.jpg" alt="受講生の作品1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>データ可視化プロジェクト</h3>
+                            <p>受講生が作成した、複雑なデータを分かりやすく可視化したダッシュボードです。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="student">
+                    <img src="images/gallery/student2.jpg" alt="受講生の作品2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>AIを活用したWebアプリ</h3>
+                            <p>受講生が開発した、機械学習モデルを組み込んだWebアプリケーションです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- ライトボックス -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="画像を閉じる"><i class="fas fa-times"></i></button>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev" aria-label="前の画像へ"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next" aria-label="次の画像へ"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
     <!-- 料金とプロセスセクション -->
     <section id="pricing" class="section pricing-section">
         <div class="container">
@@ -441,22 +559,22 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         <i class="fas fa-question-circle"></i>
-                        <span>プログラミングの経験がなくても大丈夫ですか？</span>
+                        <span>費用はどれくらいかかりますか？</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>はい、プログラミング未経験の方でも安心して参加できます。基礎から丁寧に指導し、一人ひとりの理解度に合わせて進めていきます。現役エンジニアが親身にサポートしますので、ご安心ください。</p>
+                        <p>95%以上の方が無料で利用されています。公的支援制度の活用や助成金申請のサポートも行っており、経済的な負担を心配することなく、スキルアップに集中できる環境を提供しています。詳細は無料相談にてご案内いたします。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         <i class="fas fa-question-circle"></i>
-                        <span>学習期間はどのくらいかかりますか？</span>
+                        <span>プログラミング経験がなくても大丈夫ですか？</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>コースによって異なりますが、データサイエンスコースは12〜20週間、生成AIコースは8〜16週間、Webマーケティングコースは10〜18週間を目安としています。ただし、一人ひとりの学習ペースに合わせて調整可能です。</p>
+                        <p>はい、未経験の方でも安心して始められます。基礎から丁寧に指導し、一人ひとりのペースに合わせた学習プランをご用意しています。特に発達障害の方に配慮した、分かりやすい教材や説明を心がけています。</p>
                     </div>
                 </div>
                 
@@ -467,55 +585,35 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>履歴書・職務経歴書の添削、面接対策、企業紹介など、就職活動をトータルでサポートします。また、発達障害への理解のある企業とのマッチングにも力を入れています。就職後も職場定着支援を行い、長期的なキャリア形成を支援します。</p>
+                        <p>履歴書や職務経歴書の添削、面接対策、企業紹介など、就職活動をトータルでサポートします。また、発達障害の特性を理解している企業との連携も行っており、適性に合った就職先を見つける手伝いをします。就職後の職場定着支援も行っています。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         <i class="fas fa-question-circle"></i>
-                        <span>費用はどのくらいかかりますか？</span>
+                        <span>通学が難しい場合、オンラインでの受講は可能ですか？</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>95%以上の方が無料で利用されています。コース受講料、教材費、就職支援、個別サポートなど、すべて無料で提供しています。経済的な負担を心配することなく、スキルアップに集中できる環境を整えています。</p>
+                        <p>はい、オンラインでの受講も可能です。ビデオ会議システムを使用した質問対応や個別サポートも行っています。通学が難しい方でも、自宅で学習を進められる環境を整えています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>受講期間はどれくらいですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>コースにより異なりますが、データサイエンスコースは12〜20週間、生成AIコースは8〜16週間、Webマーケティングコースは10〜18週間を目安としています。ただし、一人ひとりの学習ペースに合わせて調整可能です。</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- お知らせセクション -->
-    <section id="news" class="section news-section">
-        <div class="container">
-            <h2 class="section-title">最新のお知らせ</h2>
-            
-            <div class="news-container">
-                <div class="news-card">
-                    <div class="news-date">2025.04.01</div>
-                    <h3 class="news-title">生成AIコース新講座開講のお知らせ</h3>
-                    <p class="news-excerpt">ビジネスでのAI活用に特化した新講座を開講しました。ChatGPT、Midjourney、Notionを活用したAI業務効率化を学べます。</p>
-                    <a href="#" class="news-link">詳細を見る <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-date">2025.03.15</div>
-                    <h3 class="news-title">就職支援企業パートナー5社追加</h3>
-                    <p class="news-excerpt">IT業界の優良企業5社と新たに提携しました。発達障害への理解があり、在宅勤務も可能な企業です。</p>
-                    <a href="#" class="news-link">詳細を見る <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-date">2025.02.20</div>
-                    <h3 class="news-title">無料オンライン説明会のお知らせ</h3>
-                    <p class="news-excerpt">毎週水曜日19時から、オンライン説明会を開催しています。お気軽にご参加ください。</p>
-                    <a href="#" class="news-link">詳細を見る <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <div class="news-more">
-                <a href="#" class="news-more-link">お知らせ一覧を見る <i class="fas fa-angle-right"></i></a>
-            </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
         </div>
     </section>
 
