@@ -28,11 +28,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS - Animate On Scroll Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- プリロード重要なリソース -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Custom CSS - 外部ファイルを先に読み込み -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- インラインCSS（一時的な解決策） - 外部CSSを上書きしたい場合はここに記述 -->
+    <style>
+        /* 外部CSSファイルを上書きするスタイルのみここに追加 
+           !importantを使用すると確実に上書きできますが、本来はCSS設計を見直す方が望ましいです */
+    </style>
 </head>
 <body>
     <!-- スキップナビゲーション - アクセシビリティ向上 -->
@@ -252,7 +256,7 @@
                         <div class="testimonial-content">
                             <p>「就職支援のサポートが充実していて、面接対策や履歴書の添削など、きめ細かな指導を受けることができました。そのおかげで、希望の企業に就職することができました。」</p>
                         </div>
-                        <footer class="testimonial-author">
+                        <footer class="testimonial-author"></footer>
                             <div class="author-avatar" aria-hidden="true">S</div>
                             <div class="author-info">
                                 <cite>佐藤 美咲さん</cite>
@@ -438,7 +442,7 @@
                     </div>
                     
                     <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-content">
+                        <div class="timeline-content"></div>
                             <div class="timeline-week">Week 15-20</div>
                             <h3>実践プロジェクト</h3>
                             <p>実際のビジネス課題に取り組み、データ分析プロジェクトを完成させます。ポートフォリオとして就職活動にも活用できる成果物を作成します。</p>
