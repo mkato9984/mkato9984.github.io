@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: 'Arial', sans-serif; font-weight: bold; }
+    .text-main { fill: #2ecc71; }
+    .text-secondary { fill: #333; }
+    .icon { fill: #2ecc71; }
+  </style>
+  <g transform="translate(10, 35)">
+    <path class="icon" d="M10,0 L20,17.32 L0,17.32 Z" transform="translate(0, -25)"/>
+    <path class="icon" d="M10,0 L20,17.32 L0,17.32 Z" transform="translate(15, -20) scale(0.7)"/>
+    <path class="icon" d="M10,0 L20,17.32 L0,17.32 Z" transform="translate(25, -15) scale(0.5)"/>
+    
+    <text x="40" y="0" class="logo-text text-main">チーム</text>
+    <text x="95" y="0" class="logo-text text-secondary">シャイニー</text>
+  </g>
+</svg>
