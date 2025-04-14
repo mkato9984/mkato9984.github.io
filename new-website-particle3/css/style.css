@@ -484,14 +484,54 @@ button {
     }
 }
 
+/* ===== パーティクルキャンバス ===== */
+.particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* サイバーグリッドとパーティクルが重なる場合の表示設定 */
+.cyber-grid-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* ダークモードでのパーティクルエフェクト強調 */
+body.dark-mode .particles-canvas {
+    opacity: 1;
+}
+
+/* ===== サイバーグリッドキャンバス ===== */
+body.dark-mode .cyber-grid-canvas {
+    opacity: 0.9;
+}
+
 /* ===== ヒーローセクション ===== */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, #2ecc71, #16a085);
+    background: linear-gradient(135deg, #4285F4, #16a085); /* 元の明るいグラデーションカラーに戻す */
     color: #ffffff;
-    padding: 160px 0 100px;
+    height: 100vh; /* 画面の高さいっぱいに設定 */
+    min-height: 600px; /* 最小高さを設定して小さい画面でも崩れないようにする */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦方向の中央配置 */
     text-align: center;
     overflow: hidden;
+    padding: 0; /* パディングをリセット */
+    margin-top: 0; /* マージンをリセット */
 }
 
 .hero-pattern {
@@ -510,6 +550,11 @@ button {
     max-width: 800px;
     margin: 0 auto;
     z-index: 2;
+}
+
+/* ダークモード時の色調整 */
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #4285F4, #16a085);
 }
 
 .animated-text {
@@ -612,7 +657,8 @@ button {
 
 @media (max-width: 768px) {
     .hero {
-        padding: 130px 0 80px;
+        min-height: 100vh; /* モバイルでも最低100vhの高さを確保 */
+        padding: 100px 0 80px; /* 上下のパディングを調整 */
     }
     
     .animated-text {

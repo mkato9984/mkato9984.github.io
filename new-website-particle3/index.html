@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="チームシャイニーは発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービスです。95%以上が無料で利用可能。">
+    <meta name="color-scheme" content="light dark">
+    <title>チームシャイニー | データサイエンス・AI・Webマーケティング教育</title>
+    
+    <!-- スタイルを一時的に非表示にして、ダークモードのフラッシュを防止 -->
+    <style>
+        html, body {
+            visibility: hidden;
+        }
+    </style>
+    
+    <!-- テーマ初期化（CSSが適用される前に実行するインラインスクリプト） -->
+    <script>
+        // ローカルストレージからテーマ設定を取得
+        const savedTheme = localStorage.getItem('theme');
+        // システムの設定を確認
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // テーマの初期設定
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.classList.add('dark-mode');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.classList.remove('dark-mode');
+        }
+    </script>
+    
+    <!-- GitHub Pagesで正しくリソースを読み込むためのベースURL設定 - 修正 -->
+    <!-- <base href="https://mkato9984.github.io/new-website/"> -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Three.js ポストプロセッシング用のエフェクトコンポーザー -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <h1 class="logo">チームシャイニー</h1>
+                
+                <div class="header-right">
+                    <a href="tel:03XXXXXXXX" class="phone-number">
+                        <i class="fas fa-phone"></i> 03-XXXX-XXXX
+                    </a>
+                    
+                    <button id="theme-toggle" class="theme-toggle" aria-label="ダークモード切り替え">
+                        <i class="fas fa-moon dark-icon"></i>
+                        <i class="fas fa-sun light-icon"></i>
+                    </button>
+                    
+                    <nav class="main-nav" aria-label="メインナビゲーション">
+                        <ul class="nav-list">
+                            <li><a href="#features">選ばれる理由</a></li>
+                            <li><a href="#courses">コース紹介</a></li>
+                            <li><a href="#testimonials">利用者の声</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                    その他 <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-label="サブメニュー">
+                                    <li><a href="#support">サポート体制</a></li>
+                                    <li><a href="#pricing">料金と流れ</a></li>
+                                    <li><a href="#faq">よくある質問</a></li>
+                                    <li><a href="#">お知らせ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact" class="cta-button">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <canvas id="cyber-grid-bg" class="cyber-grid-canvas"></canvas>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="animated-text">発達の特性を活かし、データサイエンス・AI・Webマーケティングのプロへ</h2>
+                <p class="hero-subtitle">現役エンジニア・マーケターによる実践指導<br>95%以上が無料利用可能</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">800+</span>
+                        <span class="stat-label">受講者数</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">就職成功率</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">提携企業</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="primary-button">
+                        <i class="fas fa-comment-dots"></i> 無料相談はこちら
+                    </a>
+                    <a href="#contact" class="secondary-button">
+                        <i class="fas fa-eye"></i> 見学・体験を申し込む
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- 選ばれる理由セクション -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">選ばれる理由</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>専門性の高いコース</h3>
+                    <p>データサイエンス、生成AI、Webマーケティングの専門コースを提供。あなたの興味に合わせて選べます。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>現役エンジニアによる指導</h3>
+                    <p>業界の最前線で活躍する現役エンジニアが、あなたの成長を丁寧にサポート。実践的な知識とスキルを直接学べます。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>実践的な学習内容</h3>
+                    <p>座学だけではなく、実際のビジネスシーンを想定した課題演習や、就職活動に役立つポートフォリオ作成に力を入れています。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>発達障害への理解とサポート</h3>
+                    <p>ADHD、ASD、LDなど、発達の特性に合わせた学習方法や個別サポートを提供。安心して学べる環境です。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Shiny Labへのキャリアパス</h3>
+                    <p>データサイエンスの専門性をさらに高めたい方へ。チームシャイニー卒業後の活躍の場として、Shiny Labをご用意しています。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-yen-sign"></i>
+                    </div>
+                    <h3>費用負担の軽減</h3>
+                    <p>経済的な負担を心配することなく、スキルアップに集中できる環境。95%以上の方が無料で利用されています。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Webマーケティングも学べる</h3>
+                    <p>データ分析、AIに加え、Webマーケティングのスキルも習得可能。多様なキャリアパスを支援します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コース紹介セクション -->
+    <section id="courses" class="section">
+        <div class="container">
+            <h2 class="section-title">コース紹介</h2>
+            
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>データサイエンスコース</h3>
+                    <p>企業のデータ活用を学び、データ分析のプロを目指す。SQL、Python、Tableauなどを習得。</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> データ基礎：データの種類と扱い方</li>
+                        <li><i class="fas fa-check-circle"></i> データ前処理：データのクリーニングと整形</li>
+                        <li><i class="fas fa-check-circle"></i> データ可視化：効果的なグラフ作成</li>
+                        <li><i class="fas fa-check-circle"></i> 探索的データ分析：データから洞察を得る</li>
+                        <li><i class="fas fa-check-circle"></i> 機械学習入門：予測モデルの作成</li>
+                        <li><i class="fas fa-check-circle"></i> 応用とプロジェクト：実践的なデータ分析</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i> 期間：12〜20週間
+                        </div>
+                        <a href="#contact" class="course-button">詳しく見る</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>生成AIコース</h3>
+                    <p>画像生成、文章作成、業務効率化など、AIの最先端技術を習得。ChatGPT、Midjourneyなどを活用。</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> 生成AIゼミ：画像・テキスト生成の基礎</li>
+                        <li><i class="fas fa-check-circle"></i> プロンプトエンジニアゼミ：効果的な指示の出し方</li>
+                        <li><i class="fas fa-check-circle"></i> データ分析（AI活用）ゼミ：AIを活用したデータ分析</li>
+                        <li><i class="fas fa-check-circle"></i> AI開発ゼミ：AIモデルの開発と実装</li>
+                        <li><i class="fas fa-check-circle"></i> Excel/スプレッドシートのAI活用ゼミ：業務効率化</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i> 期間：8〜16週間
+                        </div>
+                        <a href="#contact" class="course-button">詳しく見る</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Webマーケティングコース</h3>
+                    <p>Webサイトへの集客、顧客との関係構築、売上向上を目指す。SEO、SNS、広告運用などを網羅的に学習。</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> SEO：検索エンジン最適化の基礎と実践</li>
+                        <li><i class="fas fa-check-circle"></i> コンテンツマーケティング：効果的なコンテンツ作成</li>
+                        <li><i class="fas fa-check-circle"></i> SNSマーケティング：各プラットフォームの活用</li>
+                        <li><i class="fas fa-check-circle"></i> Web広告：Google広告、SNS広告の運用</li>
+                        <li><i class="fas fa-check-circle"></i> データ分析：アクセス解析と効果測定</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i> 期間：10〜18週間
+                        </div>
+                        <a href="#contact" class="course-button">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- 利用者の声セクション -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">利用者の声</h2>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>発達障害の特性を理解した上での学習支援がとても効果的でした。自分のペースで学べる環境が整っており、無理なくプログラミングのスキルを身につけることができました。</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>田中 健太さん</h4>
+                            <p>Webエンジニア</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>就職支援のサポートが充実していて、面接対策や履歴書の添削など、きめ細かな指導を受けることができました。そのおかげで、希望の企業に就職することができました。</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>佐藤 美咲さん</h4>
+                            <p>フロントエンドエンジニア</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>職場定着支援のおかげで、新しい環境でも安心して働くことができています。定期的なフォローアップにより、困ったことがあってもすぐに相談できる体制が整っています。</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>木村 拓也さん</h4>
+                            <p>バックエンドエンジニア</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- サポート体制セクション -->
+    <section id="support" class="section">
+        <div class="container">
+            <h2 class="section-title">サポート体制</h2>
+            
+            <div class="support-container">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>個別学習プラン</h3>
+                    <p>一人ひとりの特性や目標に合わせた学習プランを作成。あなたのペースで無理なく学習を進められます。</p>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>現役エンジニアによる指導</h3>
+                    <p>質問しやすい環境で疑問を即解決。実践的な知識とスキルを直接学べます。</p>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>就職支援</h3>
+                    <p>履歴書添削、面接対策、企業紹介など、就職活動をトータルでサポートします。</p>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>職場定着支援</h3>
+                    <p>就職後も安心して働けるよう、職場でのコミュニケーションや業務の進め方などをサポートします。</p>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>発達障害専門スタッフ</h3>
+                    <p>専門知識を持つスタッフが親身に対応。特性に合わせた学習方法や環境を提案します。</p>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>コミュニケーション支援</h3>
+                    <p>ソーシャルスキルトレーニングなどを通じて、職場でのコミュニケーション力を向上させます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ギャラリーセクション -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">学習風景ギャラリー</h2>
+            <p class="gallery-description">チームシャイニーでの学習風景や施設の様子をご紹介します。</p>
+            
+            <div class="gallery-filter">
+                <button class="filter-button active" data-filter="all">すべて</button>
+                <button class="filter-button" data-filter="classroom">教室風景</button>
+                <button class="filter-button" data-filter="event">イベント</button>
+                <button class="filter-button" data-filter="facility">施設</button>
+                <button class="filter-button" data-filter="student">受講生の作品</button>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item" data-category="classroom">
+                    <img src="images/gallery/classroom1.jpg" alt="教室風景1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>データサイエンスクラス</h3>
+                            <p>現役のデータサイエンティストから直接指導を受けることができます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classroom">
+                    <img src="images/gallery/classroom2.jpg" alt="教室風景2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>少人数制グループワーク</h3>
+                            <p>理解度に合わせた少人数制のグループで実践的なプロジェクトに取り組みます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="event">
+                    <img src="images/gallery/event1.jpg" alt="イベント1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>企業合同説明会</h3>
+                            <p>提携企業による説明会で、就職への道が広がります。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="event">
+                    <img src="images/gallery/event2.jpg" alt="イベント2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>ハッカソンイベント</h3>
+                            <p>チームでの開発スキルを磨くハッカソンイベントを定期的に開催しています。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="facility">
+                    <img src="images/gallery/facility1.jpg" alt="施設1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>開放的なラウンジ</h3>
+                            <p>休憩やディスカッションに最適な、開放的で居心地の良いスペースです。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="facility">
+                    <img src="images/gallery/facility2.jpg" alt="施設2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>最新設備の教室</h3>
+                            <p>高性能PCと大型モニターを完備した、快適な学習環境です。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="student">
+                    <img src="images/gallery/student1.jpg" alt="受講生の作品1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>データ可視化プロジェクト</h3>
+                            <p>受講生が作成した、複雑なデータを分かりやすく可視化したダッシュボードです。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="student">
+                    <img src="images/gallery/student2.jpg" alt="受講生の作品2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>AIを活用したWebアプリ</h3>
+                            <p>受講生が開発した、機械学習モデルを組み込んだWebアプリケーションです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- ライトボックス -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="画像を閉じる"><i class="fas fa-times"></i></button>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev" aria-label="前の画像へ"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next" aria-label="次の画像へ"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- 料金とプロセスセクション -->
+    <section id="pricing" class="section pricing-section">
+        <div class="container">
+            <h2 class="section-title">料金とプロセス</h2>
+            
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>95%以上が無料で利用可能</h3>
+                    <p class="pricing-description">経済的な負担を心配することなく、スキルアップに集中できる環境を提供しています。</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> コース受講料無料</li>
+                        <li><i class="fas fa-check"></i> 教材費無料</li>
+                        <li><i class="fas fa-check"></i> 就職支援無料</li>
+                        <li><i class="fas fa-check"></i> 個別サポート無料</li>
+                    </ul>
+                    <a href="#contact" class="pricing-button">無料相談を申し込む</a>
+                </div>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>無料相談</h3>
+                    <p>まずは無料相談で、あなたの目標や特性についてお話ししましょう。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>学習プラン作成</h3>
+                    <p>一人ひとりの特性や目標に合わせた学習プランを作成します。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>コース受講開始</h3>
+                    <p>選んだコースの学習を開始。現役エンジニアが丁寧にサポートします。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>就職支援</h3>
+                    <p>履歴書添削、面接対策、企業紹介など、就職活動をトータルでサポート。</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>職場定着支援</h3>
+                    <p>就職後も安心して働けるよう、職場でのコミュニケーションや業務の進め方などをサポート。</p>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- よくある質問セクション -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>発達障害があるのですが、参加できますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>はい、もちろん参加できます。ADHD、ASD、LDなど、様々な発達の特性に合わせた学習方法や個別サポートを提供しています。一人ひとりの特性を理解し、最適な学習環境を整えています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>費用はどれくらいかかりますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>95%以上の方が無料で利用されています。公的支援制度の活用や助成金申請のサポートも行っており、経済的な負担を心配することなく、スキルアップに集中できる環境を提供しています。詳細は無料相談にてご案内いたします。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>プログラミング経験がなくても大丈夫ですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>はい、未経験の方でも安心して始められます。基礎から丁寧に指導し、一人ひとりのペースに合わせた学習プランをご用意しています。特に発達障害の方に配慮した、分かりやすい教材や説明を心がけています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>就職支援はどのように行われますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>履歴書や職務経歴書の添削、面接対策、企業紹介など、就職活動をトータルでサポートします。また、発達障害の特性を理解している企業との連携も行っており、適性に合った就職先を見つける手伝いをします。就職後の職場定着支援も行っています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>通学が難しい場合、オンラインでの受講は可能ですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>はい、オンラインでの受講も可能です。ビデオ会議システムを使用した質問対応や個別サポートも行っています。通学が難しい方でも、自宅で学習を進められる環境を整えています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <i class="fas fa-question-circle"></i>
+                        <span>受講期間はどれくらいですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>コースにより異なりますが、データサイエンスコースは12〜20週間、生成AIコースは8〜16週間、Webマーケティングコースは10〜18週間を目安としています。ただし、一人ひとりの学習ペースに合わせて調整可能です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wave">
+            <img src="images/wave.svg" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            
+            <div class="contact-container">
+                <form id="inquiryForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">必須</span></label>
+                        <input type="text" id="name" name="name" placeholder="例：山田 太郎" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">必須</span></label>
+                        <input type="email" id="email" name="email" placeholder="例：example@gmail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">電話番号 <span class="optional">任意</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry-type">お問い合わせ種別 <span class="required">必須</span></label>
+                        <select id="inquiry-type" name="inquiry-type" required>
+                            <option value="">選択してください</option>
+                            <option value="consultation">無料相談・見学について</option>
+                            <option value="course">コース内容について</option>
+                            <option value="employment">就職支援について</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                        <textarea id="message" name="message" rows="5" placeholder="具体的な内容をご記入ください" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i> 送信する
+                    </button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="info-content">
+                            <h4>電話</h4>
+                            <a href="tel:03XXXXXXXX">03-XXXX-XXXX</a>
+                            <p class="info-note">平日 9:00〜18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-content">
+                            <h4>メール</h4>
+                            <a href="mailto:info@team-shiny.com">info@team-shiny.com</a>
+                            <p class="info-note">24時間受付</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h4>所在地</h4>
+                            <p>〒XXX-XXXX 東京都千代田区XX-XX-XX</p>
+                            <p class="info-note">最寄り駅：XX駅 徒歩5分</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッターセクション -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-about">
+                        <h3 class="footer-logo">チームシャイニー</h3>
+                        <p>発達障害を持つ方々のためのデータサイエンス・AI・Webマーケティング教育サービス</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>クイックリンク</h4>
+                        <ul>
+                            <li><a href="#">ホーム</a></li>
+                            <li><a href="#courses">コース紹介</a></li>
+                            <li><a href="#faq">よくある質問</a></li>
+                            <li><a href="#news">お知らせ</a></li>
+                            <li><a href="#contact">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>お問い合わせ</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 03-XXXX-XXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@team-shiny.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 東京都千代田区XX-XX-XX</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 チームシャイニー All Rights Reserved.</p>
+                    <div class="footer-links-bottom">
+                        <a href="#">プライバシーポリシー</a>
+                        <a href="#">利用規約</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ページトップへ戻るボタン -->
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="ページトップへ戻る">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- インラインの球状の渦巻きパーティクルアニメーション -->
+    <script>
+        /**
+         * Three.jsを使用した球状渦巻きパーティクルアニメーション
+         * ヒーローセクションの背景に3D空間で球状に渦巻く粒子エフェクトを表示
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            // キャンバス要素の取得
+            const canvas = document.getElementById('cyber-grid-bg');
+            if (!canvas) {
+                console.error('Canvas element not found');
+                return;
+            }
+            
+            // 既存の初期化フラグをチェック
+            if (canvas.getAttribute('data-initialized') === 'true') {
+                console.log('Canvas already initialized');
+                return;
+            }
+            
+            // 初期化済みとしてマーク
+            canvas.setAttribute('data-initialized', 'true');
+            
+            // シーン、カメラ、レンダラーの作成
+            const scene = new THREE.Scene();
+            
+            // スクリーンサイズの取得
+            const width = window.innerWidth;
+            const height = canvas.clientHeight || window.innerHeight;
+            
+            // パラメータ設定
+            const params = {
+                count: 2500,          // パーティクル数
+                size: {
+                    min: 0.05,
+                    max: 0.5
+                },
+                color: 0xffffff,      // パーティクルの色
+                sphereRadius: 25,     // 球の半径
+                maxDistance: 15,      // 接続線の最大距離
+                connectionOpacity: 0.12, // 接続線の透明度
+                rotationSpeed: 0.05,  // 回転速度
+                mouseInfluence: 8,    // マウスの影響半径
+                cameraDistance: 35    // カメラの距離
+            };
+            
+            // カメラの作成
+            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            camera.position.z = params.cameraDistance;
+            
+            // レンダラーの作成
+            const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true,
+                antialias: true
+            });
+            
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+            renderer.setClearColor(0x000000, 0); // 透明な背景
+            
+            // マウス位置の追跡
+            const mouse = new THREE.Vector2(0, 0);
+            
+            // パーティクルテクスチャの作成
+            function createParticleTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                
+                const context = canvas.getContext('2d');
+                const gradient = context.createRadialGradient(
+                    canvas.width / 2,
+                    canvas.height / 2,
+                    0,
+                    canvas.width / 2,
+                    canvas.height / 2,
+                    canvas.width / 2
+                );
+                
+                gradient.addColorStop(0, 'rgba(255,255,255,1)');
+                gradient.addColorStop(0.2, 'rgba(240,240,240,0.8)');
+                gradient.addColorStop(0.4, 'rgba(200,200,200,0.5)');
+                gradient.addColorStop(1, 'rgba(0,0,0,0)');
+                
+                context.fillStyle = gradient;
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const texture = new THREE.Texture(canvas);
+                texture.needsUpdate = true;
+                return texture;
+            }
+            
+            // パーティクルの作成
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(params.count * 3);
+            const velocities = [];
+            const sizes = new Float32Array(params.count);
+            
+            // 球面上にパーティクルを均等に配置（フィボナッチ分布）
+            for (let i = 0; i < params.count; i++) {
+                const i3 = i * 3;
+                
+                // フィボナッチ分布を使用して球面上に均等に点を配置
+                const phi = Math.acos(-1 + (2 * i) / params.count);
+                const theta = Math.sqrt(params.count * Math.PI) * phi;
+                
+                // 半径はランダムに僅かに異なる値を設定
+                const radius = params.sphereRadius * (0.75 + Math.random() * 0.35);
+                
+                // 球面座標を直交座標に変換
+                positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                positions[i3 + 2] = radius * Math.cos(phi);
+                
+                // 接線方向の初期速度
+                const pos = new THREE.Vector3(
+                    positions[i3],
+                    positions[i3 + 1],
+                    positions[i3 + 2]
+                );
+                
+                // 位置を正規化して方向ベクトルを得る
+                const normalizedPos = pos.clone().normalize();
+                
+                // 上ベクトルを少しランダムにしてより自然な動きに
+                const upVector = new THREE.Vector3(
+                    Math.random() - 0.5,
+                    1 + (Math.random() - 0.5) * 0.3,
+                    Math.random() - 0.5
+                ).normalize();
+                
+                // 接線ベクトルを計算（位置ベクトルと上ベクトルの外積）
+                const tangent = new THREE.Vector3().crossVectors(normalizedPos, upVector).normalize();
+                
+                // 接線方向の速度（回転に使用）
+                const tangentSpeed = 0.03 + Math.random() * 0.04;
+                
+                // 速度を保存
+                velocities.push({
+                    velocity: new THREE.Vector3(
+                        tangent.x * tangentSpeed,
+                        tangent.y * tangentSpeed,
+                        tangent.z * tangentSpeed
+                    ),
+                    acceleration: new THREE.Vector3(0, 0, 0)
+                });
+                
+                // サイズをランダムに設定
+                sizes[i] = params.size.min + Math.random() * (params.size.max - params.size.min);
+            }
+            
+            // ジオメトリに位置とサイズを設定
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+            
+            // シェーダーマテリアルの作成
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            const material = new THREE.ShaderMaterial({
+                uniforms: {
+                    color: { value: new THREE.Color(isDarkMode ? 0x4eff9e : 0xffffff) },
+                    pointTexture: { value: createParticleTexture() }
+                },
+                vertexShader: `
+                    attribute float size;
+                    varying vec3 vColor;
+                    void main() {
+                      vColor = vec3(1.0, 1.0, 1.0);
+                      vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                      gl_PointSize = size * (300.0 / -mvPosition.z);
+                      gl_Position = projectionMatrix * mvPosition;
+                    }
+                `,
+                fragmentShader: `
+                    uniform vec3 color;
+                    uniform sampler2D pointTexture;
+                    varying vec3 vColor;
+                    void main() {
+                      gl_FragColor = vec4(color * vColor, 1.0);
+                      gl_FragColor = gl_FragColor * texture2D(pointTexture, gl_PointCoord);
+                      if (gl_FragColor.a < 0.1) discard;
+                    }
+                `,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthWrite: false
+            });
+            
+            // パーティクルシステムの作成
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+            
+            // 接続線用のジオメトリとマテリアル
+            const linesGeometry = new THREE.BufferGeometry();
+            const linePositions = new Float32Array(params.count * 2 * 3);
+            const lineColors = new Float32Array(params.count * 2 * 3);
+            
+            linesGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+            linesGeometry.setAttribute('color', new THREE.BufferAttribute(lineColors, 3));
+            
+            const lineMaterial = new THREE.LineBasicMaterial({
+                vertexColors: true,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                opacity: params.connectionOpacity,
+                depthWrite: false
+            });
+            
+            // 接続線の作成
+            const lines = new THREE.LineSegments(linesGeometry, lineMaterial);
+            scene.add(lines);
+            
+            // 時間追跡
+            const clock = new THREE.Clock();
+            let elapsedTime = 0;
+            
+            // ウィンドウのリサイズイベント
+            window.addEventListener('resize', () => {
+                const newWidth = window.innerWidth;
+                const newHeight = canvas.clientHeight || window.innerHeight;
+                
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(newWidth, newHeight);
+            });
+            
+            // マウスの移動イベント
+            document.addEventListener('mousemove', (event) => {
+                mouse.x = (event.clientX / width) * 2 - 1;
+                mouse.y = -(event.clientY / height) * 2 + 1;
+            });
+            
+            // テーマ変更イベント
+            document.addEventListener('themeChanged', () => {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                const color = isDarkMode ? 0x4eff9e : 0xffffff;
+                material.uniforms.color.value.setHex(color);
+            });
+            
+            // アニメーションループ
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // 時間の更新
+                const delta = clock.getDelta();
+                elapsedTime += delta;
+                
+                // パーティクルの更新
+                for (let i = 0; i < params.count; i++) {
+                    const i3 = i * 3;
+                    
+                    // 現在の位置
+                    const x = positions[i3];
+                    const y = positions[i3 + 1];
+                    const z = positions[i3 + 2];
+                    
+                    const position = new THREE.Vector3(x, y, z);
+                    
+                    // 中心からの距離を計算
+                    const distanceFromCenter = position.length();
+                    
+                    // 位置を正規化して方向ベクトルを取得
+                    const direction = position.clone().normalize();
+                    
+                    // 球面に引き戻す力（球形を維持するため）
+                    const targetRadius = params.sphereRadius;
+                    const sphericalForce = (targetRadius - distanceFromCenter) * 0.01;
+                    
+                    // 方向に沿って球面に戻る力を適用
+                    velocities[i].velocity.x += direction.x * sphericalForce;
+                    velocities[i].velocity.y += direction.y * sphericalForce;
+                    velocities[i].velocity.z += direction.z * sphericalForce;
+                    
+                    // 球面上での回転力を計算
+                    // 回転軸をランダム化して複雑な渦を作る
+                    const rotationAxis = new THREE.Vector3(
+                        Math.sin(elapsedTime * 0.1) * 0.2 + 0.1,
+                        1.0,
+                        Math.cos(elapsedTime * 0.15) * 0.2
+                    ).normalize();
+                    
+                    // 方向ベクトルと回転軸の外積で接線方向を得る
+                    const tangent = new THREE.Vector3().crossVectors(direction, rotationAxis).normalize();
+                    
+                    // 中心に近いほど速く回転
+                    const rotationStrength = params.rotationSpeed * (0.5 + 0.5 * Math.min(1, 1 - distanceFromCenter / targetRadius));
+                    
+                    // 接線方向に力を加える（渦巻きの回転力）
+                    velocities[i].velocity.x += tangent.x * rotationStrength;
+                    velocities[i].velocity.y += tangent.y * rotationStrength;
+                    velocities[i].velocity.z += tangent.z * rotationStrength;
+                    
+                    // 副次的な渦の力（より複雑な動きを作るため）
+                    const secondaryAxis = new THREE.Vector3(
+                        Math.sin(elapsedTime * 0.3 + i * 0.01),
+                        Math.cos(elapsedTime * 0.2 + i * 0.01),
+                        Math.sin(elapsedTime * 0.25 + i * 0.02)
+                    ).normalize();
+                    
+                    const secondaryTangent = new THREE.Vector3().crossVectors(direction, secondaryAxis).normalize();
+                    const secondaryStrength = rotationStrength * 0.3;
+                    
+                    velocities[i].velocity.x += secondaryTangent.x * secondaryStrength;
+                    velocities[i].velocity.y += secondaryTangent.y * secondaryStrength;
+                    velocities[i].velocity.z += secondaryTangent.z * secondaryStrength;
+                    
+                    // マウスの影響
+                    const mouseVector = new THREE.Vector3(
+                        mouse.x * params.sphereRadius,
+                        mouse.y * params.sphereRadius,
+                        params.sphereRadius * 0.5
+                    );
+                    
+                    const distToMouse = position.distanceTo(mouseVector);
+                    
+                    if (distToMouse < params.mouseInfluence) {
+                        const mouseDirection = new THREE.Vector3(
+                            mouseVector.x - x,
+                            mouseVector.y - y,
+                            mouseVector.z - z
+                        ).normalize();
+                        
+                        const strength = (1 - distToMouse / params.mouseInfluence) * 0.05;
+                        
+                        velocities[i].velocity.x += mouseDirection.x * strength;
+                        velocities[i].velocity.y += mouseDirection.y * strength;
+                        velocities[i].velocity.z += mouseDirection.z * strength;
+                    }
+                    
+                    // 全体的な波動効果
+                    const waveStrength = 0.01;
+                    velocities[i].velocity.x += Math.sin(elapsedTime * 0.5 + i * 0.1) * waveStrength;
+                    velocities[i].velocity.y += Math.cos(elapsedTime * 0.4 + i * 0.1) * waveStrength;
+                    velocities[i].velocity.z += Math.sin(elapsedTime * 0.3 + i * 0.1) * waveStrength;
+                    
+                    // 速度の制限
+                    const maxSpeed = 0.2;
+                    const speed = velocities[i].velocity.length();
+                    if (speed > maxSpeed) {
+                        velocities[i].velocity.multiplyScalar(maxSpeed / speed);
+                    }
+                    
+                    // 摩擦（減衰）を適用
+                    velocities[i].velocity.multiplyScalar(0.98);
+                    
+                    // 位置の更新
+                    positions[i3] += velocities[i].velocity.x;
+                    positions[i3 + 1] += velocities[i].velocity.y;
+                    positions[i3 + 2] += velocities[i].velocity.z;
+                    
+                    // 極端に遠くに行ったパーティクルを球面上に戻す
+                    if (distanceFromCenter > params.sphereRadius * 2) {
+                        // 新しい球面上の位置を計算
+                        const phi = Math.random() * Math.PI * 2;
+                        const theta = Math.random() * Math.PI;
+                        const r = params.sphereRadius * (0.8 + Math.random() * 0.3);
+                        
+                        // 座標の更新
+                        positions[i3] = r * Math.sin(theta) * Math.cos(phi);
+                        positions[i3 + 1] = r * Math.sin(theta) * Math.sin(phi);
+                        positions[i3 + 2] = r * Math.cos(theta);
+                        
+                        // 速度のリセット
+                        velocities[i].velocity.set(
+                            (Math.random() - 0.5) * 0.02,
+                            (Math.random() - 0.5) * 0.02,
+                            (Math.random() - 0.5) * 0.02
+                        );
+                    }
+                }
+                
+                // ジオメトリの更新
+                particles.geometry.attributes.position.needsUpdate = true;
+                
+                // 接続線の更新
+                let vertexPos = 0;
+                const color = new THREE.Color(isDarkMode ? 0x4eff9e : 0xffffff);
+                
+                // パーティクル間の接続
+                for (let i = 0; i < params.count; i++) {
+                    const i3 = i * 3;
+                    
+                    const pos1 = new THREE.Vector3(
+                        positions[i3],
+                        positions[i3 + 1],
+                        positions[i3 + 2]
+                    );
+                    
+                    // パフォーマンス向上のため、一部のパーティクルのみ処理
+                    if (i % 5 !== 0) continue;
+                    
+                    // 近いパーティクルとのみ接続
+                    for (let j = i + 1; j < params.count; j++) {
+                        const j3 = j * 3;
+                        
+                        // パフォーマンス向上のため、一部のパーティクルのみ処理
+                        if (j % 5 !== 0) continue;
+                        
+                        const pos2 = new THREE.Vector3(
+                            positions[j3],
+                            positions[j3 + 1],
+                            positions[j3 + 2]
+                        );
+                        
+                        // 距離の計算
+                        const distance = pos1.distanceTo(pos2);
+                        
+                        // 最大距離内の場合のみ線を描画
+                        if (distance < params.maxDistance) {
+                            // 距離に応じた透明度の設定
+                            const alpha = 1.0 - distance / params.maxDistance;
+                            
+                            // 線の始点
+                            linePositions[vertexPos] = pos1.x;
+                            linePositions[vertexPos + 1] = pos1.y;
+                            linePositions[vertexPos + 2] = pos1.z;
+                            
+                            // 始点の色
+                            lineColors[vertexPos] = color.r * alpha;
+                            lineColors[vertexPos + 1] = color.g * alpha;
+                            lineColors[vertexPos + 2] = color.b * alpha;
+                            
+                            // 次の頂点位置に進む
+                            vertexPos += 3;
+                            
+                            // 線の終点
+                            linePositions[vertexPos] = pos2.x;
+                            linePositions[vertexPos + 1] = pos2.y;
+                            linePositions[vertexPos + 2] = pos2.z;
+                            
+                            // 終点の色
+                            lineColors[vertexPos] = color.r * alpha;
+                            lineColors[vertexPos + 1] = color.g * alpha;
+                            lineColors[vertexPos + 2] = color.b * alpha;
+                            
+                            // 次の頂点位置に進む
+                            vertexPos += 3;
+                        }
+                    }
+                }
+                
+                // 使用されていない線を非表示に
+                for (let i = vertexPos; i < linePositions.length; i++) {
+                    linePositions[i] = 0;
+                    lineColors[i] = 0;
+                }
+                
+                // 線のジオメトリ更新
+                lines.geometry.attributes.position.needsUpdate = true;
+                lines.geometry.attributes.color.needsUpdate = true;
+                
+                // カメラの軽微な回転でより立体感を出す
+                camera.position.x = Math.sin(elapsedTime * 0.1) * 3;
+                camera.position.y = Math.sin(elapsedTime * 0.08) * 2;
+                camera.lookAt(0, 0, 0);
+                
+                // シーンのレンダリング
+                renderer.render(scene, camera);
+            }
+            
+            // アニメーションの開始
+            animate();
+            
+            console.log('球状渦巻きパーティクルシステムが初期化されました');
+        });
+
+        // テーマ切り替えイベントのディスパッチ
+        document.getElementById('theme-toggle')?.addEventListener('click', () => {
+            document.dispatchEvent(new CustomEvent('themeChanged'));
+        });
+    </script>
+</body>
+</html>
