@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チーム シャイニー - 洗練されたプロフェッショナルサービス</title>
+    <meta name="description" content="チーム シャイニーは、高品質なサービスと革新的なソリューションを提供し、お客様のビジネスの成功をサポートします。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- アクセシビリティ用スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="header__logo">
+                <span class="header__logo-text">チーム シャイニー</span>
+            </a>
+            
+            <button class="header__menu-btn" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="#about">選ばれる理由</a></li>
+                    <li><a href="#services">サービス内容</a></li>
+                    <li><a href="#testimonials">お客様の声</a></li>
+                    <li><a href="#features">サポート体制</a></li>
+                    <li><a href="#process">導入の流れ</a></li>
+                    <li class="mobile-only-item"><a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__contact">
+                <a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero" id="main-content">
+        <div class="hero__inner">
+            <h1 class="hero__title">
+                ビジネスの成長を
+                <br class="hero-break">
+                加速させる
+                <br class="hero-break">
+                <span class="condensed-text">プロサービス</span>
+            </h1>
+            <p class="hero__subtitle">最新のテクノロジーと革新的なアプローチで、お客様のビジネスを次のレベルへと導きます。</p>
+            
+            <div class="hero__buttons">
+                <a href="#services" class="btn btn--primary">サービスを見る</a>
+                <a href="#contact" class="btn btn--secondary">お問い合わせ</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <p>スクロールする</p>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <!-- 選ばれる理由 -->
+    <section class="reason" id="about">
+        <div class="reason__inner">
+            <h2 class="section-title">選ばれる理由</h2>
+            
+            <div class="reason__grid">
+                <div class="reason__item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>高品質なサービス</h3>
+                    <p>専門知識と経験を持つプロフェッショナルチームが、常に高品質なサービスを提供します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>革新的なソリューション</h3>
+                    <p>最新のテクノロジーと革新的なアイデアを活用して、ビジネス課題を効果的に解決します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>迅速な対応</h3>
+                    <p>お客様のニーズに迅速かつ柔軟に対応し、最適なソリューションを提案します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-users"></i>
+                    <h3>チームワーク</h3>
+                    <p>多様な専門性を持つメンバーが連携し、総合的な視点からサービスを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- コース紹介 -->
+    <section class="course" id="services">
+        <div class="course__inner">
+            <h2 class="section-title">サービス内容</h2>
+            
+            <div class="course__tabs">
+                <button class="course__tab active" data-tab="tab1">
+                    <i class="fas fa-chart-line"></i> ビジネス戦略
+                </button>
+                <button class="course__tab" data-tab="tab2">
+                    <i class="fas fa-code"></i> テクノロジー
+                </button>
+                <button class="course__tab" data-tab="tab3">
+                    <i class="fas fa-bullhorn"></i> マーケティング
+                </button>
+            </div>
+            
+            <div class="course__contents">
+                <div id="tab1" class="course__content active">
+                    <h3>ビジネス戦略</h3>
+                    <p>市場分析、競合調査、事業計画策定など、ビジネスの成長戦略をサポートします。</p>
+                    
+                    <ul class="course__features">
+                        <li><i class="fas fa-check"></i> 市場分析と競合調査</li>
+                        <li><i class="fas fa-check"></i> 事業計画策定</li>
+                        <li><i class="fas fa-check"></i> リスク分析と対策</li>
+                        <li><i class="fas fa-check"></i> 業務プロセス最適化</li>
+                        <li><i class="fas fa-check"></i> 成長戦略コンサルティング</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn--primary">詳細を問い合わせる</a>
+                </div>
+                
+                <div id="tab2" class="course__content">
+                    <h3>テクノロジーソリューション</h3>
+                    <p>最新技術を活用した、効率的で使いやすいシステムを開発・導入します。</p>
+                    
+                    <ul class="course__features">
+                        <li><i class="fas fa-check"></i> ウェブアプリケーション開発</li>
+                        <li><i class="fas fa-check"></i> モバイルアプリ開発</li>
+                        <li><i class="fas fa-check"></i> クラウドインフラ構築</li>
+                        <li><i class="fas fa-check"></i> システム連携・自動化</li>
+                        <li><i class="fas fa-check"></i> テクニカルサポート</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn--primary">詳細を問い合わせる</a>
+                </div>
+                
+                <div id="tab3" class="course__content">
+                    <h3>マーケティング支援</h3>
+                    <p>デジタルマーケティング、広告戦略、ブランディングなどをトータルサポートします。</p>
+                    
+                    <ul class="course__features">
+                        <li><i class="fas fa-check"></i> デジタルマーケティング戦略</li>
+                        <li><i class="fas fa-check"></i> SNS運用・広告配信</li>
+                        <li><i class="fas fa-check"></i> コンテンツマーケティング</li>
+                        <li><i class="fas fa-check"></i> ブランディング</li>
+                        <li><i class="fas fa-check"></i> SEO・アクセス解析</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn--primary">詳細を問い合わせる</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 利用者の声 -->
+    <section class="voice" id="testimonials">
+        <div class="voice__inner">
+            <h2 class="section-title">お客様の声</h2>
+            
+            <div class="voice__slider">
+                <div class="voice__slides">
+                    <div class="voice__slide active">
+                        <div class="voice__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="voice__text">チーム シャイニーのおかげで、私たちのビジネスは急速に成長しました。彼らの専門知識と革新的なアプローチに感謝しています。</p>
+                        <div class="voice__info">
+                            <strong>田中 健太</strong>
+                            <small>株式会社テックイノベーション代表取締役</small>
+                        </div>
+                    </div>
+                    
+                    <div class="voice__slide">
+                        <div class="voice__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="voice__text">マーケティング戦略の立案から実行まで、一貫してサポートしていただき、売上が前年比150%に向上しました。</p>
+                        <div class="voice__info">
+                            <strong>佐藤 真理</strong>
+                            <small>グローバルリテール株式会社 マーケティング部長</small>
+                        </div>
+                    </div>
+                    
+                    <div class="voice__slide">
+                        <div class="voice__quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="voice__text">システム開発プロジェクトを担当いただき、予定より早く高品質なシステムが完成。業務効率が大幅に向上しました。</p>
+                        <div class="voice__info">
+                            <strong>鈴木 一郎</strong>
+                            <small>未来工業株式会社 IT部門マネージャー</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="voice__slider-btn voice__slider-btn--prev" aria-label="前のテストモニアルを表示">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="voice__slider-btn voice__slider-btn--next" aria-label="次のテストモニアルを表示">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="voice__dots">
+                    <button class="voice__dot active" aria-label="1番目のテストモニアルを表示"></button>
+                    <button class="voice__dot" aria-label="2番目のテストモニアルを表示"></button>
+                    <button class="voice__dot" aria-label="3番目のテストモニアルを表示"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- サポート体制 -->
+    <section class="support" id="features">
+        <div class="support__inner">
+            <h2 class="section-title">サポート体制</h2>
+            
+            <div class="support__grid">
+                <div class="support__item">
+                    <i class="fas fa-headset"></i>
+                    <h3>専任サポート担当</h3>
+                    <p>専任のサポート担当者が、お客様のビジネスを深く理解した上で一貫したサポートを提供します。</p>
+                </div>
+                
+                <div class="support__item">
+                    <i class="fas fa-comments"></i>
+                    <h3>定期的なミーティング</h3>
+                    <p>定期的なミーティングを通じて、進捗確認や課題解決、今後の方針についての議論を行います。</p>
+                </div>
+                
+                <div class="support__item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>データ分析レポート</h3>
+                    <p>サービスの効果や課題を可視化するデータ分析レポートを定期的に提供し、PDCAサイクルを支援します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 費用と利用の流れ -->
+    <section class="flow" id="process">
+        <div class="flow__inner">
+            <h2 class="section-title">導入の流れ</h2>
+            
+            <div class="flow__content">
+                <div class="flow__price">
+                    <h3>95%以上が無料で利用可能</h3>
+                    <p>初回のコンサルテーションと基本的な分析・提案は<strong>無料</strong>で提供しています。具体的なサービス内容や料金はお客様の課題やニーズに合わせてカスタマイズいたします。</p>
+                </div>
+                
+                <div class="flow__steps">
+                    <div class="flow__step">
+                        <div class="flow__step-number">1</div>
+                        <div class="flow__step-content">
+                            <h4>お問い合わせ</h4>
+                            <p>ウェブサイトのお問い合わせフォームまたはお電話にてご連絡ください。担当者が48時間以内にご返信いたします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow__step">
+                        <div class="flow__step-number">2</div>
+                        <div class="flow__step-content">
+                            <h4>初回ヒアリング</h4>
+                            <p>お客様のビジネスの現状や課題、目標などについて詳しくお伺いします。オンラインまたは対面でのミーティングを設定します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow__step">
+                        <div class="flow__step-number">3</div>
+                        <div class="flow__step-content">
+                            <h4>提案・見積もり</h4>
+                            <p>ヒアリング内容を基に、最適なソリューションと具体的なアクションプランをご提案します。料金や期間などの詳細もご案内します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow__step">
+                        <div class="flow__step-number">4</div>
+                        <div class="flow__step-content">
+                            <h4>契約・サービス開始</h4>
+                            <p>提案内容にご納得いただけましたら、契約を締結しサービスを開始します。定期的な進捗報告と調整を行いながら進めていきます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow__cta">
+                    <a href="#contact" class="btn btn--primary">まずは無料相談する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- よくある質問 -->
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <h2 class="section-title">よくある質問</h2>
+            
+            <div class="faq__list">
+                <div class="faq__item active">
+                    <button class="faq__question">
+                        <span>サービスの最低契約期間はありますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>基本的な最低契約期間は3ヶ月となっております。ただし、プロジェクトの内容や規模によって異なる場合がありますので、詳細は個別にご相談ください。</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>料金体系について教えてください</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>料金はプロジェクトの規模や内容によって異なります。月額制のサポートプランや、プロジェクト単位の一括料金など、お客様のニーズに合わせた料金体系をご用意しています。初回のコンサルテーションで詳細をご案内いたします。</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>小規模な企業でも利用できますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>はい、企業規模に関わらずご利用いただけます。特にスタートアップや中小企業向けのプランも用意しており、成長段階に合わせたサポートを提供しています。</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>サポートが必要な場合の連絡方法は？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>専用のサポート窓口（電話・メール）をご用意しております。また、緊急時には担当者の携帯電話にも直接ご連絡いただけます。平日9時〜18時のサポート対応となりますが、事前にご相談いただければ時間外対応も可能です。</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>他社と比較した際の強みは何ですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>当社の強みは、ビジネス戦略・テクノロジー・マーケティングの専門家がワンチームとなり、総合的なソリューションを提供できる点です。また、お客様ごとに専任の担当者を配置し、一貫したサポートを行うことで高い顧客満足度を実現しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 運営会社情報 -->
+    <section class="companies" id="about-us">
+        <div class="companies__inner">
+            <h2 class="section-title">運営会社情報</h2>
+            
+            <div class="companies__grid">
+                <div class="companies__item">
+                    <h3>株式会社シャイニーコーポレーション</h3>
+                    <p class="companies__subtitle">ビジネスの成長と発展をサポートする総合コンサルティング企業</p>
+                    
+                    <div class="companies__info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            〒123-4567<br>東京都渋谷区渋谷1-2-3<br>シャイニービル4F
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            03-1234-5678
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@shiny-corp.co.jp">info@shiny-corp.co.jp</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://www.shiny-corp.co.jp" target="_blank" rel="noopener">www.shiny-corp.co.jp</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="companies__item">
+                    <h3>株式会社シャイニーテクノロジー</h3>
+                    <p class="companies__subtitle">最新テクノロジーで未来を創造するテクノロジーカンパニー</p>
+                    
+                    <div class="companies__info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            〒123-4567<br>東京都渋谷区渋谷1-2-3<br>シャイニービル5F
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            03-1234-5679
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@shiny-tech.co.jp">info@shiny-tech.co.jp</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://www.shiny-tech.co.jp" target="_blank" rel="noopener">www.shiny-tech.co.jp</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせ -->
+    <section class="contact" id="contact">
+        <div class="contact__inner">
+            <h2 class="section-title">お問い合わせ</h2>
+            
+            <div class="contact__content">
+                <form id="contactForm" class="contact__form">
+                    <div class="contact__form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="contact__form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="contact__form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="contact__form-group">
+                        <label for="message">お問い合わせ内容</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary">
+                        <i class="fas fa-paper-plane"></i> 送信する
+                    </button>
+                </form>
+                
+                <div class="contact__info">
+                    <div class="contact__info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>所在地</h3>
+                            <p>東京都渋谷区渋谷1-2-3</p>
+                            <small>※ご来社の際は事前にご連絡ください</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>お電話</h3>
+                            <p>03-1234-5678</p>
+                            <small>平日 9:00〜18:00</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>メール</h3>
+                            <p>info@shiny-corp.co.jp</p>
+                            <small>24時間受付中</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__copyright">
+                &copy; 2025 チーム シャイニー. All rights reserved.
+            </div>
+            
+            <div class="footer__links">
+                <a href="#" target="_blank" rel="noopener">プライバシーポリシー</a>
+                <a href="#" target="_blank" rel="noopener">利用規約</a>
+                <a href="#" target="_blank" rel="noopener">会社概要</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- トップに戻るボタン -->
+    <a href="#" class="back-to-top" aria-label="ページトップへ戻る">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    
+    <!-- JavaScriptファイル -->
+    <script src="js/main.js"></script>
+    <script src="js/dots-background.js"></script>
+</body>
+</html>
