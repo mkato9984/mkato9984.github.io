@@ -236,6 +236,16 @@ section {
     color: var(--color-text);
 }
 
+.header__logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform var(--transition-normal);
+}
+
+.header__logo:hover .header__logo-img {
+    transform: scale(1.05);
+}
+
 .header__logo-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
