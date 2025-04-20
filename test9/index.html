@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマートリンク - サイバーパンク風プロフェッショナルサービス</title>
+    <meta name="description" content="スマートリンクは、高品質なサービスと革新的なソリューションを提供し、お客様のビジネスの成功をサポートします。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #050508; /* 非常に暗い背景 */
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(10, 10, 16, 0.9));
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* スタイリッシュなパネルデザイン - 網状効果 */
+        .hero__inner {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2.5rem;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.15), 
+                0 0 20px rgba(255, 0, 255, 0.1);
+        }
+        
+        /* グリッド・網状の背景エフェクト */
+        .hero__inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px) 0 0 / 20px 20px,
+                linear-gradient(0deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px) 0 0 / 20px 20px;
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* アングルの効果 */
+        .hero__inner::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            transform: rotate(45deg);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* コーナーの装飾 */
+        .cyber-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            opacity: 0.8;
+        }
+        
+        .cyber-corner--top-left {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .cyber-corner--top-right {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .cyber-corner--bottom-left {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .cyber-corner--bottom-right {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+        
+        /* タイトルテキストの輝き効果を強化 */
+        .hero__title {
+            position: relative;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 
+                0 0 5px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(0, 0, 0, 0.5),
+                0 0 7px rgba(0, 255, 255, 0.8),
+                0 0 14px rgba(0, 255, 255, 0.5);
+            margin-bottom: 0.5rem;
+            animation: textPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes textPulse {
+            0%, 100% { text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 7px rgba(0, 255, 255, 0.8), 0 0 14px rgba(0, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5); }
+        }
+        
+        .condensed-text {
+            color: #00FFFF; /* ネオンカラー */
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 5px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(0, 0, 0, 0.5),
+                0 0 5px rgba(0, 255, 255, 1),
+                0 0 10px rgba(0, 255, 255, 0.8), 
+                0 0 15px rgba(0, 255, 255, 0.6),
+                0 0 25px rgba(0, 255, 255, 0.4);
+            padding: 0.2em 0.1em;
+            display: inline-block;
+            position: relative;
+            animation: neonFlicker 5s infinite alternate;
+        }
+        
+        /* ネオンのちらつき効果 */
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 5px rgba(0, 0, 0, 0.8),
+                    0 0 10px rgba(0, 0, 0, 0.5),
+                    0 0 5px rgba(0, 255, 255, 1),
+                    0 0 10px rgba(0, 255, 255, 0.8), 
+                    0 0 15px rgba(0, 255, 255, 0.6),
+                    0 0 25px rgba(0, 255, 255, 0.4);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        /* サブタイトルのスタイル改善 */
+        .hero__subtitle {
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 2px solid rgba(0, 255, 255, 0.5);
+        }
+        
+        /* ボタンのスタイル改善 - よりサイバーパンク風に */
+        .btn--primary {
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2) inset;
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .btn--secondary {
+            color: #00FFFF;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00FFFF;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn--primary::after, .btn--secondary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: transform 0.6s;
+        }
+        
+        .btn--primary:hover::after, .btn--secondary:hover::after {
+            transform: rotate(30deg) translateX(300%);
+        }
+        
+        .btn--secondary:hover {
+            background-color: rgba(0, 255, 255, 0.15);
+        }
+        
+        /* スクロールインジケーターのスタイル改善 */
+        .scroll-indicator {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        .scroll-indicator i {
+            animation: bounce 2s infinite;
+            color: rgba(0, 255, 255, 0.8);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- アクセシビリティ用スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="header__logo">
+                <img src="images/logo.svg" alt="スマートリンク" class="header__logo-img">
+            </a>
+            
+            <button class="header__menu-btn" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="#about">選ばれる理由</a></li>
+                    <li class="mobile-only-item"><a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__contact">
+                <a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero" id="main-content">
+        <div class="dots-canvas"></div>
+        <div class="gradient-overlay"></div>
+        
+        <div class="hero__inner">
+            <!-- サイバーパンク風コーナー装飾 -->
+            <div class="cyber-corner cyber-corner--top-left"></div>
+            <div class="cyber-corner cyber-corner--top-right"></div>
+            <div class="cyber-corner cyber-corner--bottom-left"></div>
+            <div class="cyber-corner cyber-corner--bottom-right"></div>
+            
+            <h1 class="hero__title">
+                ビジネスの成長を
+                <br class="hero-break">
+                加速させる
+                <br class="hero-break">
+                <span class="condensed-text">サイバーテック</span>
+            </h1>
+            <p class="hero__subtitle">最新のテクノロジーと革新的なアプローチで、お客様のビジネスを次のレベルへと導きます。</p>
+            
+            <div class="hero__buttons">
+                <a href="#services" class="btn btn--primary">サービスを見る</a>
+                <a href="#contact" class="btn btn--secondary">お問い合わせ</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <p>スクロールする</p>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <!-- 選ばれる理由 -->
+    <section class="reason" id="about">
+        <div class="reason__inner">
+            <h2 class="section-title">選ばれる理由</h2>
+            
+            <div class="reason__grid">
+                <div class="reason__item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>高品質なサービス</h3>
+                    <p>専門知識と経験を持つプロフェッショナルチームが、常に高品質なサービスを提供します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>革新的なソリューション</h3>
+                    <p>最新のテクノロジーと革新的なアイデアを活用して、ビジネス課題を効果的に解決します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>迅速な対応</h3>
+                    <p>お客様のニーズに迅速かつ柔軟に対応し、最適なソリューションを提案します。</p>
+                </div>
+                
+                <div class="reason__item">
+                    <i class="fas fa-users"></i>
+                    <h3>チームワーク</h3>
+                    <p>多様な専門性を持つメンバーが連携し、総合的な視点からサービスを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- トップに戻るボタン -->
+    <a href="#" class="back-to-top" aria-label="ページトップへ戻る">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    
+    <!-- JavaScriptファイルの読み込み -->
+    <script src="js/cyber-grid.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

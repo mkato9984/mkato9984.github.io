@@ -604,16 +604,16 @@ body.dark-mode .hero {
 }
 
 .secondary-button {
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .secondary-button:hover,
 .secondary-button:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .primary-button i, 
